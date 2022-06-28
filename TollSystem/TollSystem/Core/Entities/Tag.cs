@@ -12,18 +12,20 @@ namespace TollSystem.Core.Entities
         public int CurrentAmountRSD { get; set; }
         public string LicensePlate { get; set; }
         public DateTime ExpirationDate { get; set; }
-        // TODO dodati transit
+        public List<Transit> Transits { get; set; }
 
         public Tag()
         { }
 
-        public Tag(int id, VehicleCategory category, int currentAmountRSD, string licensePlate, DateTime expirationDate)
+        public Tag(int id, VehicleCategory category, int currentAmountRSD, string licensePlate,
+                    DateTime expirationDate, List<Transit> transits)
         {
             Id = id;
             Category = category;
             CurrentAmountRSD = currentAmountRSD;
             LicensePlate = licensePlate;
             ExpirationDate = expirationDate;
+            Transits = transits;
         }
     }
 }
