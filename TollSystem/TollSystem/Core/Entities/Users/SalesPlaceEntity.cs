@@ -4,16 +4,16 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class SalesPlace
+    class SalesPlaceEntity
     {
         public string Name { get; set; }
         public Credentials Credentials { get; set; }
         public int AvailableTags { get; set; }
 
-        public SalesPlace()
+        public SalesPlaceEntity()
         { }
 
-        public SalesPlace(string name, Credentials credentials, int availableTags)
+        public SalesPlaceEntity(string name, Credentials credentials, int availableTags)
         {
             Name = name;
             Credentials = credentials;

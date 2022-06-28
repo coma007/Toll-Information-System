@@ -5,17 +5,17 @@ using TollSystem.Core.Enumerations;
 
 namespace TollSystem.Core.Entities
 {
-    class Price
+    class PriceEntity
     {
         public int PriceEUR { get; set; }
         public int PriceRSD { get; set; }
         public VehicleCategory Category { get; set; }
-        public Section Section { get; set; }
+        public SectionEntity Section { get; set; }
 
-        public Price()
+        public PriceEntity()
         { }
 
-        public Price(int priceEUR, int priceRSD, VehicleCategory category, Section section)
+        public PriceEntity(int priceEUR, int priceRSD, VehicleCategory category, SectionEntity section)
         {
             PriceEUR = priceEUR;
             PriceRSD = priceRSD;

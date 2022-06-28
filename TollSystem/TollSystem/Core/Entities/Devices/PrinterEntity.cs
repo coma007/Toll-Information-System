@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class Printer : Device
+    class PrinterEntity : DeviceEntity
     {
     }
 }

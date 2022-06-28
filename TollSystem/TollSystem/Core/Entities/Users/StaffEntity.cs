@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class Staff
+    class StaffEntity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -12,12 +12,12 @@ namespace TollSystem.Core.Entities
         public Credentials Credentials { get; set; }
 
 
-        public Staff()
+        public StaffEntity()
         {
 
         }
 
-        public Staff(string firstName, string lastName, double salary, Credentials credentials)
+        public StaffEntity(string firstName, string lastName, double salary, Credentials credentials)
         {
             FirstName = firstName;
             LastName = lastName;

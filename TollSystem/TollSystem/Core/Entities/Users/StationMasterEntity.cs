@@ -4,16 +4,16 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class StationMaster : Staff
+    class StationMasterEntity : StaffEntity
     {
-        public TollStation TollStation { get; set; }
+        public TollStationEntity TollStation { get; set; }
 
-        public StationMaster()
+        public StationMasterEntity()
         {
             
         }
 
-        public StationMaster(TollStation tollStation)
+        public StationMasterEntity(TollStationEntity tollStation)
         {
             TollStation = tollStation;
         }
