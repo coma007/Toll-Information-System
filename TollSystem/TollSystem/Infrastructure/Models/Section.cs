@@ -5,6 +5,11 @@ namespace TollSystem.Infrastructure.Models
 {
     public partial class Section
     {
+        public Section()
+        {
+            Price = new HashSet<Price>();
+        }
+
         public decimal Id { get; set; }
         public decimal Length { get; set; }
         public decimal Tollstation1id { get; set; }
@@ -13,5 +18,6 @@ namespace TollSystem.Infrastructure.Models
 
         public virtual Tollstation Tollstation1 { get; set; }
         public virtual Tollstation Tollstation2 { get; set; }
+        public virtual ICollection<Price> Price { get; set; }
     }
 }
