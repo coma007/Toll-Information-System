@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Infrastructure\Database\" />
-    <Folder Include="Infrastructure\Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
