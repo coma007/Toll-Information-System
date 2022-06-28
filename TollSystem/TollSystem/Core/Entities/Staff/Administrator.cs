@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TollSystem.Core.DTO
+namespace TollSystem.Core.Entities
 {
-    class TollStationDTO
+    class Administrator : Staff
     {
+        
     }
 }
