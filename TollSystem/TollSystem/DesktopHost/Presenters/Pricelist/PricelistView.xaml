@@ -20,11 +20,12 @@
                 Text="Price list"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
-                FontSize="30">
+                FontSize="30"
+                Margin="-40 0 0 0">
             </TextBlock>
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Margin="-50 0 0 100">
             <ListView Width="auto" Height="335" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <ListView.View>
                     <GridView>
