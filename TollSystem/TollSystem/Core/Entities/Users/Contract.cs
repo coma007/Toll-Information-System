@@ -6,7 +6,7 @@ namespace TollSystem.Core.Entities
 {
     class Contract
     {
-        public Staff Staff { get; set; }
+        public StaffEntity Staff { get; set; }
         public DateTime ValidFrom { get; set; }
         public DateTime ValidTo { get; set; }
 
@@ -16,7 +16,7 @@ namespace TollSystem.Core.Entities
 
         }
 
-        public Contract(Staff staff, DateTime validFrom, DateTime validTo)
+        public Contract(StaffEntity staff, DateTime validFrom, DateTime validTo)
         {
             Staff = staff;
             ValidFrom = validFrom;

@@ -5,16 +5,16 @@ using TollSystem.Core.Enumerations;
 
 namespace TollSystem.Core.Entities
 {
-    class Ramp : Device
+    class SemaphoreEntity : DeviceEntity
     {
-        public RampState State;
+        public SemaphoreState State { get; set; }
 
-        public Ramp()
+        public SemaphoreEntity()
         {
 
         }
 
-        public Ramp(RampState state)
+        public SemaphoreEntity(SemaphoreState state)
         {
             State = state;
         }

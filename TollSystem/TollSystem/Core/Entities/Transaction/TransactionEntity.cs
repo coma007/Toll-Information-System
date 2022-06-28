@@ -5,18 +5,18 @@ using TollSystem.Core.Enumerations;
 
 namespace TollSystem.Core.Entities
 {
-    class Transaction
+    class TransactionEntity
     {
         public int Price { get; set; }
         public Currency Currency { get; set; }
-        public Transit Transit { get; set; }
+        public TransitEntity Transit { get; set; }
 
 
-        public Transaction()
+        public TransactionEntity()
         { 
         }
 
-        public Transaction(int price, Currency currency, Transit transit)
+        public TransactionEntity(int price, Currency currency, TransitEntity transit)
         {
             Price = price;
             Currency = currency;

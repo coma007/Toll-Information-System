@@ -4,23 +4,23 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class Transit
+    class TransitEntity
     {
         public int Id { get; set; }
         public DateTime EntranceTime { get; set; }
         public DateTime ExitTime { get; set; }
-        public TollBooth EntranceTollBooth { get; set; }
-        public TollBooth ExitTollBooth { get; set; }
-        public Transaction Transaction { get; set; }
+        public TollBoothEntity EntranceTollBooth { get; set; }
+        public TollBoothEntity ExitTollBooth { get; set; }
+        public TransactionEntity Transaction { get; set; }
 
-        public Transit()
+        public TransitEntity()
         {
 
         }
 
-        public Transit(int id, DateTime entranceTime, DateTime exitTime,
-                       TollBooth entranceTollBooth, TollBooth exitTollBooth,
-                       Transaction transaction)
+        public TransitEntity(int id, DateTime entranceTime, DateTime exitTime,
+                       TollBoothEntity entranceTollBooth, TollBoothEntity exitTollBooth,
+                       TransactionEntity transaction)
         {
             Id = id;
             EntranceTime = entranceTime;

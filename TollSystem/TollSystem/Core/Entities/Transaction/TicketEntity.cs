@@ -5,17 +5,17 @@ using TollSystem.Core.Enumerations;
 
 namespace TollSystem.Core.Entities
 {
-    class Ticket
+    class TicketEntity
     {
         public int Id { get; set; }
         public VehicleCategory Category { get; set; }
         public string LicensePlate { get; set; }
-        public Transit Transit { get; set; }
+        public TransitEntity Transit { get; set; }
 
-        public Ticket()
+        public TicketEntity()
         { }
 
-        public Ticket(int id, VehicleCategory category, string licensePlate, Transit transit)
+        public TicketEntity(int id, VehicleCategory category, string licensePlate, TransitEntity transit)
         {
             Id = id;
             Category = category;

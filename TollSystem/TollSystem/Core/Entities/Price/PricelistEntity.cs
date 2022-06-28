@@ -4,18 +4,18 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class Pricelist
+    class PricelistEntity
     {
         public int Id { get; set; }
         public DateTime ValidFrom { get; set; }
         public DateTime ValidTo { get; set; }
         public bool IsActive { get; set; }
-        public List<Price> Prices { get; set; }
+        public List<PriceEntity> Prices { get; set; }
 
-        public Pricelist()
+        public PricelistEntity()
         { }
 
-        public Pricelist(int id, DateTime validFrom, DateTime validTo, bool isActive, List<Price> prices)
+        public PricelistEntity(int id, DateTime validFrom, DateTime validTo, bool isActive, List<PriceEntity> prices)
         {
             Id = id;
             ValidFrom = validFrom;

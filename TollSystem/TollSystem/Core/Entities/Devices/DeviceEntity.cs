@@ -4,17 +4,17 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class Device
+    class DeviceEntity
     {
         public int Id { get; set; }
         public bool IsDamaged { get; set; }
 
-        public Device()
+        public DeviceEntity()
         {
 
         }
 
-        public Device(int id, bool isDamaged)
+        public DeviceEntity(int id, bool isDamaged)
         {
             Id = id;
             IsDamaged = isDamaged;

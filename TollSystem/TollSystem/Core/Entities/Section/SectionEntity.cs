@@ -4,18 +4,18 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class Section
+    class SectionEntity
     {
         public double Length { get; set; }
-        public TollStation EntranceTollStation { get; set; }
-        public TollStation ExitTollStation { get; set; }
+        public TollStationEntity EntranceTollStation { get; set; }
+        public TollStationEntity ExitTollStation { get; set; }
 
-        public Section()
+        public SectionEntity()
         { 
         }
 
-        public Section(double length, TollStation entranceTollStation, 
-                       TollStation exitTollStation)
+        public SectionEntity(double length, TollStationEntity entranceTollStation, 
+                       TollStationEntity exitTollStation)
         {
             Length = length;
             EntranceTollStation = entranceTollStation;
