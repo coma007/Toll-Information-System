@@ -19,12 +19,12 @@ namespace TollSystem
             using (ModelContext m = new ModelContext())
             {
 
-                Tollstation t = m.Tollstation.Where(a => a.Id == 1).ToList()[0];
-                Console.WriteLine(t);
+                //Tollstation t = m.Tollstation.Where(a => a.Id == 1).ToList()[0];
+                //Console.WriteLine(t);
                 //List<Tollbooth> tb = m.Tollbooth.Where(b => b.Station == t).ToList();
                 //List<Device> d = m.Device.Where(c => c.Tollbooth == tb[0]).ToList();
                 //m.Section.Add(new Section { Length = 100, Tollstation1 = t, Tollstation2 = t });
-                m.SaveChanges();
+                //m.SaveChanges();
             }
 
             base.OnStartup(e);
