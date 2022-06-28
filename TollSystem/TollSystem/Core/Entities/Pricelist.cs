@@ -10,18 +10,18 @@ namespace TollSystem.Core.Entities
         public DateTime ValidFrom { get; set; }
         public DateTime ValidTo { get; set; }
         public bool IsActive { get; set; }
-        public Price Price { get; set; }
+        public List<Price> Prices { get; set; }
 
         public Pricelist()
         { }
 
-        public Pricelist(int id, DateTime validFrom, DateTime validTo, bool isActive, Price price)
+        public Pricelist(int id, DateTime validFrom, DateTime validTo, bool isActive, List<Price> prices)
         {
             Id = id;
             ValidFrom = validFrom;
             ValidTo = validTo;
             IsActive = isActive;
-            Price = price;
+            Prices = prices;
         }
     }
 }

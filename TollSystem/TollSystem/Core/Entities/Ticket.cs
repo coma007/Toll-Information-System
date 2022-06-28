@@ -10,15 +10,17 @@ namespace TollSystem.Core.Entities
         public int Id { get; set; }
         public VehicleCategory Category { get; set; }
         public string LicensePlate { get; set; }
+        public Transit Transit { get; set; }
 
         public Ticket()
         { }
 
-        public Ticket(int id, VehicleCategory category, string licensePlate)
+        public Ticket(int id, VehicleCategory category, string licensePlate, Transit transit)
         {
             Id = id;
             Category = category;
             LicensePlate = licensePlate;
+            Transit = transit;
         }
     }
 }

@@ -9,16 +9,18 @@ namespace TollSystem.Core.Entities
     {
         public int Price { get; set; }
         public Currency Currency { get; set; }
-       // TODO dodati Transit
+        public Transit Transit { get; set; }
+
 
         public Transaction()
         { 
         }
 
-        public Transaction(int price, Currency currency, int TransitId)
+        public Transaction(int price, Currency currency, Transit transit)
         {
             Price = price;
             Currency = currency;
+            Transit = transit;
         }
     }
 }

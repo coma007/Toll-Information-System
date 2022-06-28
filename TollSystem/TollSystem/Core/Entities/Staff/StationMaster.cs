@@ -10,7 +10,7 @@ namespace TollSystem.Core.Entities
 
         public StationMaster()
         {
-
+            
         }
 
         public StationMaster(TollStation tollStation)

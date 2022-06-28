@@ -7,15 +7,19 @@ namespace TollSystem.Core.Entities
     class Section
     {
         public double Length { get; set; }
-        // TODO dodati tollstation
+        public TollStation EntranceTollStation { get; set; }
+        public TollStation ExitTollStation { get; set; }
 
         public Section()
         { 
         }
 
-        public Section(double length)
+        public Section(double length, TollStation entranceTollStation, 
+                       TollStation exitTollStation)
         {
             Length = length;
+            EntranceTollStation = entranceTollStation;
+            ExitTollStation = exitTollStation;
         }
     }
 }
