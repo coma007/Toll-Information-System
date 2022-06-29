@@ -51,14 +51,59 @@ namespace TollSystem.Commands.TollStationCreation
                     .ToList()[0];
 
                 Pricelist p = _pricelist.FindActive();
+                int pricesNum = _prices.FindByPricelistId((int)p.Id).Count;
+
 
                 _prices.Add(new Price()
                 {
                     Pricelistid = p.Id,
+                    Ordinalnumber = pricesNum + 1,
                     Pricersd = (decimal)sections[stationId][1],
                     Priceeur = (decimal)sections[stationId][2],
-                    Sectionid = s.Id
+                    Sectionid = s.Id,
+                    Category = "Ia"
                 });
+
+                _prices.Add(new Price()
+                {
+                    Pricelistid = p.Id,
+                    Ordinalnumber = pricesNum + 2,
+                    Pricersd = (decimal)(sections[stationId][1] + 100),
+                    Priceeur = (decimal)(sections[stationId][2] + 1.00),
+                    Sectionid = s.Id,
+                    Category = "I"
+                });
+
+                _prices.Add(new Price()
+                {
+                    Pricelistid = p.Id,
+                    Ordinalnumber = pricesNum + 3,
+                    Pricersd = (decimal)(sections[stationId][1] + 250),
+                    Priceeur = (decimal)(sections[stationId][2] + 3.00),
+                    Sectionid = s.Id,
+                    Category = "II"
+                });
+
+                _prices.Add(new Price()
+                {
+                    Pricelistid = p.Id,
+                    Ordinalnumber = pricesNum + 4,
+                    Pricersd = (decimal)(sections[stationId][1] + 550),
+                    Priceeur = (decimal)(sections[stationId][2] + 5.00),
+                    Sectionid = s.Id,
+                    Category = "III"
+                });
+
+                _prices.Add(new Price()
+                {
+                    Pricelistid = p.Id,
+                    Ordinalnumber = pricesNum + 5,
+                    Pricersd = (decimal)(sections[stationId][1] + 800),
+                    Priceeur = (decimal)(sections[stationId][2] + 7.00),
+                    Sectionid = s.Id,
+                    Category = "IV"
+                });
+
                 _prices.Save();
             }
 
@@ -86,7 +131,7 @@ namespace TollSystem.Commands.TollStationCreation
             {
                 Stationid = stationid,
                 Tollboothnumber = ordinalnumber,
-                Devicetype = ""
+                Devicetype = "RAMP"
             });
             //napravi sve uredjaje
 
