@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class Contract
+    public class Contract
     {
         public StaffEntity Staff { get; set; }
         public DateTime ValidFrom { get; set; }

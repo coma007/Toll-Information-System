@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace HealthInstitution.Commands
+namespace TollSystem.Commands
 {
     public abstract class BaseCommand : ICommand
     {

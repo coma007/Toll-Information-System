@@ -5,7 +5,7 @@ using TollSystem.Core.Enumerations;
 
 namespace TollSystem.Core.Entities
 {
-    class TransactionEntity
+    public class TransactionEntity
     {
         public int Price { get; set; }
         public Currency Currency { get; set; }

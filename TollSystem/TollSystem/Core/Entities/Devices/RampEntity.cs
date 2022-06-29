@@ -5,7 +5,7 @@ using TollSystem.Core.Enumerations;
 
 namespace TollSystem.Core.Entities
 {
-    class RampEntity : DeviceEntity
+    public class RampEntity : DeviceEntity
     {
         public RampState State;
 

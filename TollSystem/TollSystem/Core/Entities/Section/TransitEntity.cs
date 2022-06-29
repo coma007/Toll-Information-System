@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class TransitEntity
+    public class TransitEntity
     {
         public int Id { get; set; }
         public DateTime EntranceTime { get; set; }

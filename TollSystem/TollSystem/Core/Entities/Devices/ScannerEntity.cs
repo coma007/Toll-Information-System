@@ -5,7 +5,7 @@ using TollSystem.Core.Enumerations;
 
 namespace TollSystem.Core.Entities
 {
-    class ScannerEntity : DeviceEntity
+    public class ScannerEntity : DeviceEntity
     {
         public ScannerType Type;
 

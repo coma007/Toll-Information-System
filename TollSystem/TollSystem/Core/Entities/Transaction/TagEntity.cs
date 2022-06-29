@@ -5,7 +5,7 @@ using TollSystem.Core.Enumerations;
 
 namespace TollSystem.Core.Entities
 {
-    class TagEntity
+    public class TagEntity
     {
         public int Id { get; set; }
         public VehicleCategory Category { get; set; }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class DamageEntity
+    public class DamageEntity
     {
         public string Description { get; set; }
         public int DeviceId { get; set; }

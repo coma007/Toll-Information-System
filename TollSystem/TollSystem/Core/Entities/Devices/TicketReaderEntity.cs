@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class TicketReaderEntity : DeviceEntity
+    public class TicketReaderEntity : DeviceEntity
     {
     }
 }

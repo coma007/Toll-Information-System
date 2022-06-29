@@ -1,11 +1,7 @@
-﻿using HealthInstitution.Commands;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TollSystem.DesktopHost;
+﻿using TollSystem.DesktopHost;
 using TollSystem.DesktopHost.Controllers;
 
-namespace TollSystem.Core.UseCases
+namespace TollSystem.Commands
 {
     public class LoginCommand : BaseCommand
     {

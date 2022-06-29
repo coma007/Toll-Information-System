@@ -6,7 +6,7 @@ using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Entities
 {
-    class PriceEntity
+    public class PriceEntity
     {
         public int OrdinalNumber { get; set; }
         public double PriceEUR { get; set; }

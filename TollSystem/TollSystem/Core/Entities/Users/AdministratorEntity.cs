@@ -5,7 +5,7 @@ using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Entities
 {
-    class AdministratorEntity : StaffEntity
+    public class AdministratorEntity : StaffEntity
     {
         public AdministratorEntity(Staff s) : base(s)
         {
