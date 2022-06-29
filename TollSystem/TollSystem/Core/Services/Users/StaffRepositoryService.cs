@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using TollSystem.Core.Entities;
-using TollSystem.Core.Services.Users;
+using TollSystem.Core.Services;
 using TollSystem.Infrastructure.Models;
 using TollSystem.Infrastructure.Repositories;
 

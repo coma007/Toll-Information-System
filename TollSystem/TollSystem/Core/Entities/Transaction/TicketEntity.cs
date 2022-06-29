@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using TollSystem.Core.Enumerations;
+using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Entities
 {
@@ -21,6 +22,14 @@ namespace TollSystem.Core.Entities
             Category = category;
             LicensePlate = licensePlate;
             Transit = transit;
+        }
+
+        public TicketEntity(Ticket ticket)
+        {
+            Id = (int)ticket.Id;
+            Category = (VehicleCategory)Enum.Parse(typeof(VehicleCategory), ticket.Category, true);
+            LicensePlate = ticket.Licenseplate;
+            Transit = null;
         }
     }
 }

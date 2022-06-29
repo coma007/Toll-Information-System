@@ -6,7 +6,7 @@ using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Services
 {
-    public interface ITollBoothModel
+    public interface ITollBoothModelService
     {
         public TollBoothEntity ModelToEntity(Tollbooth tollbooth, IDeviceRepositoryService repository,
                                              IRepositoryService<TollStationEntity> repo);
