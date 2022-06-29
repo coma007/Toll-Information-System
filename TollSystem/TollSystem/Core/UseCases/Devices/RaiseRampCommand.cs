@@ -22,13 +22,14 @@ namespace TollSystem.Commands
             }
             _referentViewModel.SemaphoreState = "Green";
             await Task.Delay(3000);
+            _referentViewModel.ResetForm();
+            _referentViewModel.IsRampEnabled = false;
             while (_referentViewModel.RampPosition != lastPosition)
             {
                 _referentViewModel.RampPosition += 1;
                 await Task.Delay(100);
             }
             _referentViewModel.SemaphoreState = "Red";
-            _referentViewModel.ResetForm();
         }
     }
 }

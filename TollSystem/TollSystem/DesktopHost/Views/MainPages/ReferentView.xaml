@@ -228,18 +228,17 @@
                    HorizontalAlignment="Center" />
             <Button Grid.Row="1"
                     Grid.Column="1"
-                    Content="Podigni rampu"
-                    Command="{Binding RaiseRamp}"
-                    IsEnabled="{Binding IsRampEnabled}"
+                    Content="Prijavi kvar"
+                    Command="{Binding ReportDamage}"
                     Height="40"
                     Width="100"
                     Margin="0 -5 60 0"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Center" />
-            <Label Grid.Row="1"
+            <Label Grid.Row="3"
                    Content="Rampa"
-                   Margin="90 60 0 0" />
-            <Line Grid.Row="2"
+                   Margin="90 20 0 0" />
+            <Line Grid.Row="4"
                   X1="350"
                   X2="100"
                   Y1="{Binding RampPosition}"
@@ -248,12 +247,12 @@
                   StrokeThickness="4" />
             <Label Grid.Row="2"
                    Content="Semafor"
-                   Margin="90 50 0 0" />
-            <Button Grid.Row="3"
+                   Margin="90 20 0 0" />
+            <Button Grid.Row="2"
                     Grid.Column="1"
                     Height="80"
                     Width="80"
-                    Margin="0 -60 60 0"
+                    Margin="0 60 60 0"
                     IsHitTestVisible="False"
                     Background="{Binding SemaphoreState}"
                     VerticalAlignment="Top"
@@ -265,13 +264,14 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Grid.Row="4"
+            <Button Grid.Row="5"
                     Grid.Column="1"
-                    Content="Prijavi kvar"
-                    Command="{Binding ReportDamage}"
+                    Content="Podigni rampu"
+                    Command="{Binding RaiseRamp}"
+                    IsEnabled="{Binding IsRampEnabled}"
                     Height="40"
                     Width="100"
-                    Margin="0 -10 60 0"
+                    Margin="0 -30 60 0"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Center" />
 
