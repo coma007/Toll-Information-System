@@ -124,5 +124,13 @@ namespace TollSystem.Commands.TollPayment
             _transit.Save();
 
         }
+
+        public double FindBiggestPrice(VehicleCategory category, Currency c = Currency.RSD)
+        {
+            Pricelist pricelist = _pricelist.FindActive();
+            Price price = _prices.FindBiggestPrice((int)pricelist.Id, category);
+            if (c == Currency.RSD) return (double)price.Pricersd;
+            else return (double)price.Priceeur;
+        }
     }
 }
