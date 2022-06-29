@@ -39,6 +39,7 @@ namespace TollSystem.Core.Services
             Staff user = _repository.FindByCredentials(username, password);
 
             Tollstation station = _stations.FindById((int)user.Stationid);
+            user.Station = station;
             return _modelService.ModelToEntity(user);
         }
     }
