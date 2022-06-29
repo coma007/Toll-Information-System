@@ -8,7 +8,7 @@ using TollSystem.Infrastructure.Repositories;
 namespace TollSystem.Core.Services
 {
 
-    class DeviceRepositoryService : RepositoryService<Device>, IDeviceRepositoryService
+    public class DeviceRepositoryService : RepositoryService<Device>, IDeviceRepositoryService
     {
         private IDeviceRepository _repository;
 
