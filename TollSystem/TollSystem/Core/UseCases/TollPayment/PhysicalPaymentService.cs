@@ -10,17 +10,17 @@ using TollSystem.Infrastructure.Repositories;
 
 namespace TollSystem.Commands.TollPayment
 {
-    public class PhysicalPaymentService
+    public class PhysicalPaymentService : IPhysicalPaymentService
     {
         private ITransitRepository _transit;
-        private IStationRepositoryService _stations;
+        private ITollStationRepositoryService _stations;
         private IRepository<Ticket> _tickets;
         private Repository<Section> _sections;
         private IPricelistRepository _pricelist;
         private IPriceRepository _prices;
         private IRepository<Transaction> _transactions;
 
-        public PhysicalPaymentService(ITransitRepository transit, IStationRepositoryService stations, IRepository<Ticket> tickets, Repository<Section> sections, IPricelistRepository pricelist, IPriceRepository prices, IRepository<Transaction> transactions)
+        public PhysicalPaymentService(ITransitRepository transit, ITollStationRepositoryService stations, IRepository<Ticket> tickets, Repository<Section> sections, IPricelistRepository pricelist, IPriceRepository prices, IRepository<Transaction> transactions)
         {
             _transit = transit;
             _stations = stations;

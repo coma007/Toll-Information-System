@@ -6,7 +6,7 @@ using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Services
 {
-    public class TransactionModelService
+    public class TransactionModelService : ITransactionModelService
     {
         public TransactionEntity ModelToEntity(Transaction transaction)
         {
@@ -14,7 +14,7 @@ namespace TollSystem.Core.Services
             TransactionEntity transactionEntity = new TransactionEntity(transaction);
             return transactionEntity;
         }
-
+        
         public Transaction EntityToModel(TransactionEntity transactionEntity)
         {
             Transaction transaction = new Transaction();

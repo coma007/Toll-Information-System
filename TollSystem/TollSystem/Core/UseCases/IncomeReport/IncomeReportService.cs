@@ -10,27 +10,28 @@ namespace TollSystem.Commands.IncomeReport
     public class IncomeReportService : IIncomeReportService
     {
         // zameni repository sa servicima
-        private IStationRepositoryService _stations;
-        private ITransitRepository _transit;
-        private ITransactionRepository _transactions;
+        private ITollStationRepositoryService _stations;
+        private ITollStationModelService _stationModelService;
+        private ITransitRepositoryService _transit;
+        private ITransactionRepositoryService _transactions;
 
-        public IncomeReportService(IStationRepositoryService stations, ITransitRepository transit, ITransactionRepository transactions)
+        public IncomeReportService(ITollStationRepositoryService stations, ITransitRepositoryService transit, ITransactionRepositoryService transactions, ITollStationModelService stationModelService)
         {
             _stations = stations;
             _transit = transit;
             _transactions = transactions;
+            _stationModelService = stationModelService;
         }
 
         public Dictionary<TollStationEntity, List<double>> getIncomePerStation(DateTime startDate, DateTime endDate)
         {
             Dictionary<TollStationEntity, List<double>> income = new Dictionary<TollStationEntity, List<double>>();
-            //ucitaj sve stanice
-            List<TollStationEntity> stations = new List<TollStationEntity>();
-            //List<Tollstation> stations = _stations.findAll();
+            
+            List<Tollstation> stationModels = _stations.FindAll();
 
-            foreach (TollStationEntity s in stations)
+            foreach (Tollstation s in stationModels)
             {
-                income.Add(s, getIncomeForStation(s.Id, startDate, endDate));
+                income.Add(_stationModelService.ModelToEntity(s), getIncomeForStation((int)s.Id, startDate, endDate));
             }
 
             return income;
