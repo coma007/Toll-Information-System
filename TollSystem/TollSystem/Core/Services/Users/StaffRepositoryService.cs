@@ -12,6 +12,7 @@ namespace TollSystem.Core.Services
     {
         private IStaffModelService _modelService;
         private IStaffRepository _repository;
+        //ovo promeni
         private IStationRepositoryService _stations;
 
         public StaffRepositoryService(IStaffRepository repository, IStaffModelService modelService, IStationRepositoryService stations)
