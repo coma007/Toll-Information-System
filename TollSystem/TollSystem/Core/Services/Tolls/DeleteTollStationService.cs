@@ -4,9 +4,9 @@ using System.Text;
 using TollSystem.Core.Entities;
 using TollSystem.Infrastructure.Models;
 
-namespace TollSystem.Core.Services.Tolls
+namespace TollSystem.Core.Services
 {
-    public class DeleteTollStationService
+    public class DeleteTollStationService : IDeleteTollStationService
     {
         private ITollStationRepositoryService _repository;
         private ITollStationModelService _model;
@@ -18,7 +18,7 @@ namespace TollSystem.Core.Services.Tolls
             _model = model;
         }
 
-        public DeleteTollStationService(TollStationEntity tollStation)
+        public void DeleteTollStation(TollStationEntity tollStation)
         {
             Tollstation station = _model.EntityToModel(tollStation);
             station.Isdeleted = 1;
