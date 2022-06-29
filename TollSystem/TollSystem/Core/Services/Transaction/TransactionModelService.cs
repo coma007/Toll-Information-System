@@ -18,9 +18,11 @@ namespace TollSystem.Core.Services
         public Transaction EntityToModel(TransactionEntity transactionEntity)
         {
             Transaction transaction = new Transaction();
+            transaction.Id = transactionEntity.Id;
             transaction.Price = transactionEntity.Price;
             transaction.Currency = transactionEntity.Currency.ToString();
             transaction.Isdeleted = 0;
+            transaction.Transitid = transactionEntity.Transit.Id;
 
             return transaction;
         }

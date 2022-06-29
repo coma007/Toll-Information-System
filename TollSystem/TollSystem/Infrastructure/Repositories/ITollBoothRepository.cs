@@ -7,5 +7,6 @@ namespace TollSystem.Infrastructure.Repositories
     public interface ITollBoothRepository : IRepository<Tollbooth>
     {
         public List<Tollbooth> FindByStationId(int id);
+        public Tollbooth FindByStationIdAndOrdinalNumber(int id, int ordinalNumber);
     }
 }

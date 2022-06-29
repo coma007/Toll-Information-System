@@ -15,5 +15,10 @@ namespace TollSystem.Infrastructure.Repositories
         {
             return _table.Where(t => t.Stationid == id).ToList();
         }
+
+        public Tollbooth FindByStationIdAndOrdinalNumber(int id, int ordinalNumber)
+        {
+            return _table.Where(t => t.Stationid == id && t.Ordinalnumber == ordinalNumber).ToList()[0];
+        }
     }
 }
