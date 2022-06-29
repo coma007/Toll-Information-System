@@ -11,6 +11,7 @@ namespace TollSystem.Core.Entities
         {
             Id = id;
             IsDamaged = isDamaged;
+        }
 
         public PrinterEntity(Device device)
         {
