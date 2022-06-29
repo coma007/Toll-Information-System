@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TollSystem.DesktopHost.Presenters.Reports
+namespace TollSystem.DesktopHost.Views
 {
     /// <summary>
     /// Interaction logic for IncomeAtStation.xaml
