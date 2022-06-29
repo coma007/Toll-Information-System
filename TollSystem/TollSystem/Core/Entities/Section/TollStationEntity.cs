@@ -21,7 +21,13 @@ namespace TollSystem.Core.Entities
 
         public TollStationEntity(string name) : this()
         {
+            Name = name;
+        }
 
+        public TollStationEntity(int id, string name) : this()
+        {
+            Id = id;
+            Name = name;
         }
 
         public TollStationEntity(int id, string name, StationMasterEntity master, List<ReferentEntity> referents,
@@ -53,6 +59,11 @@ namespace TollSystem.Core.Entities
                     StationMaster = null;
                     break;
             }
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }
