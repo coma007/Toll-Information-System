@@ -9,8 +9,8 @@ namespace TollSystem.Infrastructure.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private ModelContext _context = null;
-        private DbSet<T> _table = null;
+        protected ModelContext _context = null;
+        protected DbSet<T> _table = null;
 
         public Repository(ModelContext context, DbSet<T> table)
         {
