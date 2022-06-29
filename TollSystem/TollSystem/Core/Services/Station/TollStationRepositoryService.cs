@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
 using TollSystem.Infrastructure.Models;
 using TollSystem.Infrastructure.Repositories;
 
@@ -10,6 +9,16 @@ namespace TollSystem.Core.Services
     {
         public TollStationRepositoryService(IRepository<Tollstation> repository) : base(repository)
         {
+        }
+
+        public Tollstation FindById(int id)
+        {
+            return _repository.GetById((decimal)id);
+        }
+
+        public List<Tollstation> FindAll()
+        {
+            return _repository.GetAll().ToList();
         }
     }
 }

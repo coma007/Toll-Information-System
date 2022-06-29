@@ -6,7 +6,7 @@ using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Services
 {
-    public interface IPricelistModel
+    public interface IPricelistModelService
     {
         public PricelistEntity ModelToEntity(Pricelist pricelist);
     }
