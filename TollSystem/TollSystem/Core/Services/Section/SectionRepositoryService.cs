@@ -6,7 +6,7 @@ using TollSystem.Infrastructure.Repositories;
 
 namespace TollSystem.Core.Services
 {
-    class SectionRepositoryService : RepositoryService<Section>
+    class SectionRepositoryService : RepositoryService<Section>, ISectionRepositoryService
     {
         public SectionRepositoryService(IRepository<Section> repository) : base(repository)
         { }

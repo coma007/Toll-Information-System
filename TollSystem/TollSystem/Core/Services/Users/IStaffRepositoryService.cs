@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using TollSystem.Core.Entities;
 
-namespace TollSystem.Core.Services.Users
+namespace TollSystem.Core.Services
 {
     public interface IStaffRepositoryService
     {

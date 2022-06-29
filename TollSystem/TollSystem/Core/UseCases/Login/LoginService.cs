@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using TollSystem.Core.Entities;
-using TollSystem.Core.Services.Users;
+using TollSystem.Core.Services;
 
 namespace TollSystem.Core.UseCases
 {

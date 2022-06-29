@@ -1,7 +1,7 @@
 ﻿using TollSystem.Core.Entities;
 using TollSystem.Infrastructure.Models;
 
-namespace TollSystem.Core.Services.Users
+namespace TollSystem.Core.Services
 {
     public interface IStaffModelService
     {

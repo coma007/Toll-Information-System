@@ -4,13 +4,14 @@ using System.Text;
 using TollSystem.Core.Entities;
 using TollSystem.Infrastructure.Models;
 
-namespace TollSystem.Core.Services.Users
+namespace TollSystem.Core.Services
 {
     class StaffModelService : IStaffModelService
     {
 
         public StaffEntity ModelToEntity(Staff s)
         {
+            if (s.Isdeleted == 1) return null;
             StaffEntity staff = null;
             switch (s.Role)
             {
