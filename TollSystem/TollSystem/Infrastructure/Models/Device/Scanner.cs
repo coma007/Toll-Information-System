@@ -8,7 +8,6 @@ namespace TollSystem.Infrastructure.Models
         public decimal Id { get; set; }
         public string Scannertype { get; set; }
         public decimal Isdeleted { get; set; }
-
         public virtual Device IdNavigation { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class SectionEntity
+    public class SectionEntity
     {
         public double Length { get; set; }
         public TollStationEntity EntranceTollStation { get; set; }

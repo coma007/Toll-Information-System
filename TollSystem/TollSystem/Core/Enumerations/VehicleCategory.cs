@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TollSystem.Core.Enumerations
 {
-    enum VehicleCategory
+    public enum VehicleCategory
     {
         Ia,
         I,

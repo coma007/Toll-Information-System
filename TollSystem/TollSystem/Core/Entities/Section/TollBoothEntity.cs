@@ -4,11 +4,10 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class TollBoothEntity
+    public class TollBoothEntity
     {
         public int OrdinalNumber { get; set; }
         public TollStationEntity TollStation { get; set; }
-        public TicketReaderEntity TickerReader { get; set; }
         public PrinterEntity RecieptPrinter { get; set; }
         public PrinterEntity TicketPrinter { get; set; }
         public SemaphoreEntity Semahore { get; set; }
@@ -21,13 +20,12 @@ namespace TollSystem.Core.Entities
 
         }
 
-        public TollBoothEntity(int ordinalNumber, TollStationEntity tollStation, TicketReaderEntity ticketReader,
+        public TollBoothEntity(int ordinalNumber, TollStationEntity tollStation,
                          PrinterEntity recieptPrinter, SemaphoreEntity semaphore, RampEntity ramp,
                          ScannerEntity tagScanner, ScannerEntity licensePlateScanner)
         {
             OrdinalNumber = ordinalNumber;
             TollStation = tollStation;
-            TickerReader = ticketReader;
             RecieptPrinter = recieptPrinter;
             Semahore = semaphore;
             Ramp = ramp;

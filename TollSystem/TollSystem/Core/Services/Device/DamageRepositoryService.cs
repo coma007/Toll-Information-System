@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TollSystem.Core.Entities;
 using TollSystem.Infrastructure.Models;
 using TollSystem.Infrastructure.Repositories;
 
 namespace TollSystem.Core.Services
 {
-
-    public class DeviceRepositoryService : RepositoryService<Device>, IDeviceRepositoryService
+    public class DamageRepositoryService : RepositoryService<Damage>, IDamageRepositoryService
     {
-        public DeviceRepositoryService(IRepository<Device> repository) : base(repository)
+        public DamageRepositoryService(IRepository<Damage> repository) : base(repository)
         {
 
         }

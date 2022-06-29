@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Entities
 {
-    class DeviceEntity
+    public class DeviceEntity
     {
         public int Id { get; set; }
         public bool IsDamaged { get; set; }
@@ -18,6 +19,15 @@ namespace TollSystem.Core.Entities
         {
             Id = id;
             IsDamaged = isDamaged;
+        }
+
+        public DeviceEntity(Device device)
+        {
+            Id = (int)device.Id;
+            if (device.Isdamaged == 0)
+                IsDamaged = false;
+            else
+                IsDamaged = true;
         }
     }
 }
