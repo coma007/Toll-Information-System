@@ -8,9 +8,15 @@ namespace TollSystem.Core.Services
 {
     public class DamageRepositoryService : RepositoryService<Damage>, IDamageRepositoryService
     {
-        public DamageRepositoryService(IRepository<Damage> repository) : base(repository)
+        private IDamageRepository _repository;
+        public DamageRepositoryService(IDamageRepository repository) : base(repository)
         {
+            _repository = repository;
+        }
 
+        public Damage FindByDeviceId(int id)
+        {
+            return _repository.FindByDeviceId(id);
         }
     }
 }

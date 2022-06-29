@@ -6,6 +6,7 @@ using TollSystem.Infrastructure.Models;
 namespace TollSystem.Infrastructure.Repositories
 {
     public interface IDamageRepository : IRepository<Damage>
-    { 
+    {
+        public Damage FindByDeviceId(int id);
     }
 }

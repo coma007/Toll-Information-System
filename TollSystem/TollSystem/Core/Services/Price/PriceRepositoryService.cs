@@ -8,7 +8,20 @@ namespace TollSystem.Core.Services
 {
     class PriceRepositoryService : RepositoryService<Price>, IPriceRepositoryService
     {
-        public PriceRepositoryService(IRepository<Price> repository) : base(repository)
-        { }
+        private IPriceRepository _repository;
+        public PriceRepositoryService(IPriceRepository repository) : base(repository)
+        {
+            _repository = repository;
+        }
+
+        public List<Price> FindByPricelistAndSectionId(int pricelistId, int sectionId)
+        {
+            return _repository.FindByPricelistAndSectionId(pricelistId, sectionId);
+        }
+
+        public List<Price> FindByPricelistId(int id)
+        {
+            return _repository.FindByPricelistId(id);
+        }
     }
 }
