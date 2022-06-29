@@ -1,0 +1,23 @@
+﻿<Window x:Class="TollSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:views="clr-namespace:TollSystem.DesktopHost.Views"
+        xmlns:viewmodels="clr-namespace:TollSystem.DesktopHost.Controllers"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+        xmlns:local="clr-namespace:TollSystem"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="TollSystem"
+        Width="500"
+        Height="500">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
+                <views:LoginView/>
+            </DataTemplate>
+        </Grid.Resources>
+        <ContentControl Content="{Binding CurrentViewModel}" />
+    </Grid>
+</Window>

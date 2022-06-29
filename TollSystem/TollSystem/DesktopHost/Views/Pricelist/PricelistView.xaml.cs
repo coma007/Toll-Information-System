@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TollSystem.DesktopHost.Presenters.TollStation
+namespace TollSystem.DesktopHost.Views
 {
     /// <summary>
-    /// Interaction logic for CreateTollStation.xaml
+    /// Interaction logic for PricelistView.xaml
     /// </summary>
-    public partial class CreateTollStation : UserControl
+    public partial class PricelistView : UserControl
     {
-        public CreateTollStation()
+        public PricelistView()
         {
             InitializeComponent();
         }
