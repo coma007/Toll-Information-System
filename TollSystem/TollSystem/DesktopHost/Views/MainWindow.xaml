@@ -11,14 +11,24 @@
         WindowState="Maximized"
         Title="TollSystem"
         Width="500"
-        Height="500">
+        Height="500"
+        Background="#b9b9b9">
     <Grid>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
                 <views:LoginView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:TollStationViewModel}">
-                <views:TollStationView />
+            <DataTemplate DataType="{x:Type viewmodels:AdminViewModel}">
+                <views:AdminView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:ManagerViewModel}">
+                <views:ManagerView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:StationMasterViewModel}">
+                <views:StationMasterView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:ReferentViewModel}">
+                <views:ReferentView />
             </DataTemplate>
         </Grid.Resources>
         <ContentControl Content="{Binding CurrentViewModel}" />

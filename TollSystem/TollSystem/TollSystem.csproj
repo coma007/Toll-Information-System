@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DesktopHost\Presenters\" />
     <Folder Include="Infrastructure\Database\" />
   </ItemGroup>
 

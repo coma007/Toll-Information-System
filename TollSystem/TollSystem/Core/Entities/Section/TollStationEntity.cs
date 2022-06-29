@@ -54,5 +54,10 @@ namespace TollSystem.Core.Entities
                     break;
             }
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
