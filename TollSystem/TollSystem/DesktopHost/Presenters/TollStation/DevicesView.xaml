@@ -50,7 +50,7 @@
                         </GridViewColumn>
                         <GridViewColumn
                             Width="500"
-                            Header="Station master">
+                            Header="State">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock 
