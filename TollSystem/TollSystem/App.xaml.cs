@@ -27,19 +27,6 @@ namespace TollSystem
                 //List<Device> d = m.Device.Where(c => c.Tollbooth == tb[0]).ToList();
                 //m.Section.Add(new Section { Length = 100, Tollstation1 = t, Tollstation2 = t });
                 //m.SaveChanges();
-                TransitRepository r = new TransitRepository(m);
-                DateTime dt1;
-                DateTime.TryParseExact("2020-11-11 10:10:10", "yyyy-dd-MM hh:mm tt",
-                                       CultureInfo.InvariantCulture,
-                                       DateTimeStyles.None,
-                                       out dt1);
-
-                DateTime dt2;
-                DateTime.TryParseExact("2022-11-11 10:10:10", "yyyy-dd-MM hh:mm tt",
-                                       CultureInfo.InvariantCulture,
-                                       DateTimeStyles.None,
-                                       out dt2);
-                r.FindByStationAndDate(1, dt1, dt2);
             }
 
             base.OnStartup(e);
