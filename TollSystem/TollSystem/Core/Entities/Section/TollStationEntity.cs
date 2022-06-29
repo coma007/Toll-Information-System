@@ -5,7 +5,7 @@ using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Entities
 {
-    class TollStationEntity
+    public class TollStationEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

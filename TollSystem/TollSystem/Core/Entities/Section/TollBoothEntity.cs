@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Entities
 {
-    class TollBoothEntity
+    public class TollBoothEntity
     {
         public int OrdinalNumber { get; set; }
         public TollStationEntity TollStation { get; set; }
@@ -21,14 +22,29 @@ namespace TollSystem.Core.Entities
 
         }
 
-        public TollBoothEntity(int ordinalNumber, TollStationEntity tollStation, TicketReaderEntity ticketReader,
+        public TollBoothEntity(int ordinalNumber, TollStationEntity tollStation, PrinterEntity ticketPrinter,
                          PrinterEntity recieptPrinter, SemaphoreEntity semaphore, RampEntity ramp,
                          ScannerEntity tagScanner, ScannerEntity licensePlateScanner)
         {
             OrdinalNumber = ordinalNumber;
             TollStation = tollStation;
-            TickerReader = ticketReader;
+            TicketPrinter = ticketPrinter;
             RecieptPrinter = recieptPrinter;
+            Semahore = semaphore;
+            Ramp = ramp;
+            TagScanner = tagScanner;
+            LicensePlateScanner = licensePlateScanner;
+        }
+
+        public TollBoothEntity(Tollbooth tollbooth, TollStationEntity station, PrinterEntity recieptPrinter,
+                               PrinterEntity ticketPrinter, SemaphoreEntity semaphore,
+                               RampEntity ramp, ScannerEntity tagScanner,
+                               ScannerEntity licensePlateScanner)
+        {
+            OrdinalNumber = (int)tollbooth.Ordinalnumber;
+            TollStation = station;
+            RecieptPrinter = recieptPrinter;
+            TicketPrinter = ticketPrinter;
             Semahore = semaphore;
             Ramp = ramp;
             TagScanner = tagScanner;

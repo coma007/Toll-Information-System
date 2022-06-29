@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TollSystem.Core.Services
 {
-    public interface IPriceRepositoryService
+    public interface ITollBoothRepositoryService
     {
     }
 }

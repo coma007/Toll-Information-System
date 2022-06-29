@@ -10,9 +10,16 @@ namespace TollSystem.Core.Services
 
     class DeviceRepositoryService : RepositoryService<Device>, IDeviceRepositoryService
     {
+        private IDeviceRepository _repository;
+
         public DeviceRepositoryService(IRepository<Device> repository) : base(repository)
         {
 
+        }
+
+        public List<Device> FindByTollBooth(int stationId, int tollBoothNumber)
+        {
+            return _repository.FindByTollBooth(stationId, tollBoothNumber);
         }
     }
 }

@@ -5,7 +5,7 @@ using TollSystem.Core.Enumerations;
 
 namespace TollSystem.Core.Entities
 {
-    class SemaphoreEntity : DeviceEntity
+    public class SemaphoreEntity : DeviceEntity
     {
         public SemaphoreState State { get; set; }
 

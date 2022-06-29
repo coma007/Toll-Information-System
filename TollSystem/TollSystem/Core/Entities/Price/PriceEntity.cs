@@ -6,7 +6,7 @@ using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Entities
 {
-    class PriceEntity
+    public class PriceEntity
     {
         public int OrdinalNumber { get; set; }
         public double PriceEUR { get; set; }
@@ -25,13 +25,13 @@ namespace TollSystem.Core.Entities
             Section = section;
         }
 
-        public PriceEntity(Price price)
+        public PriceEntity(Price price, SectionEntity section)
         {
             OrdinalNumber = (int)price.Ordinalnumber;
             PriceEUR = (double)price.Priceeur;
             PriceRSD = (int)price.Pricersd;
             Category = (VehicleCategory)Enum.Parse(typeof(VehicleCategory), price.Category);
-            //Section = price.Section;
+            Section = section;
         }
     }
 }

@@ -13,5 +13,35 @@ namespace TollSystem.Core.Services
         {
             _repository = repository;
         }
+
+        public void Add(T obj)
+        {
+            _repository.Add(obj);
+        }
+
+        public void Delete(object id)
+        {
+            _repository.Delete(id);
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            return _repository.GetAll();
+        }
+
+        public T GetById(object id)
+        {
+            return _repository.GetById(id);
+        }
+
+        public void Save()
+        {
+            _repository.Save();
+        }
+
+        public void Update(T obj)
+        {
+            _repository.Update(obj);
+        }
     }
 }
