@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Entities
 {
-    class StaffEntity
+    public class StaffEntity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -25,5 +26,13 @@ namespace TollSystem.Core.Entities
             Credentials = credentials;
         }
 
+
+        public StaffEntity(Staff staff)
+        {
+            FirstName = staff.Firstname;
+            LastName = staff.Lastname;
+            Salary = (double)staff.Salary;
+            Credentials = new Credentials(staff.Username, staff.Password);
+        }
     }
 }
