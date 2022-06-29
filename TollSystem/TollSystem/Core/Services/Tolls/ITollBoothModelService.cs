@@ -8,7 +8,6 @@ namespace TollSystem.Core.Services
 {
     public interface ITollBoothModelService
     {
-        public TollBoothEntity ModelToEntity(Tollbooth tollbooth, IDeviceRepositoryService repository,
-                                             IRepositoryService<TollStationEntity> repo);
+        public TollBoothEntity ModelToEntity(Tollbooth tollbooth, IDeviceRepositoryService repository);
     }
 }

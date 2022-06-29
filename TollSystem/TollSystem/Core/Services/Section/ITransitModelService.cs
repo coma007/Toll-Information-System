@@ -9,6 +9,6 @@ namespace TollSystem.Core.Services
     public interface ITransitModelService
     {
         public TransitEntity ModelToEntity(Transit transit, ITollBoothRepositoryService service, TollBoothModelService tollBoothModel,
-            IDeviceRepositoryService repository, IRepositoryService<TollStationEntity> repo);
+            IDeviceRepositoryService repository);
     }
 }

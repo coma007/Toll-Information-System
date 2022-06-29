@@ -9,8 +9,7 @@ namespace TollSystem.Core.Services
 {
     public class TollBoothModelService : ITollBoothModelService
     {
-        public TollBoothEntity ModelToEntity(Tollbooth tollbooth, IDeviceRepositoryService repository,
-                                             IRepositoryService<TollStationEntity> repo)
+        public TollBoothEntity ModelToEntity(Tollbooth tollbooth, IDeviceRepositoryService repository)
         {
             if (tollbooth.Isdeleted == 1) return null;
             List<Device> devices = repository.FindByTollBooth( (int)tollbooth.Stationid, (int)tollbooth.Ordinalnumber);
@@ -43,8 +42,7 @@ namespace TollSystem.Core.Services
                         break;
                 }
             }
-            TollStationEntity tollstation = repo.GetById(tollbooth.Stationid);
-            return new TollBoothEntity(tollbooth, tollstation, recieptPrinter,
+            return new TollBoothEntity(tollbooth, null, recieptPrinter,
                                        ticketPrinter, semaphore, ramp, tagScanner,
                                        licensePlateScanner);
         }

@@ -37,7 +37,10 @@ namespace TollSystem.Core.Services
         public StaffEntity FindByCredentials(string username, string password)
         {
             Staff user = _repository.FindByCredentials(username, password);
-
+            if (user is null)
+            {
+                return null;
+            }
             Tollstation station = _stations.FindById((int)user.Stationid);
             user.Station = station;
             return _modelService.ModelToEntity(user);

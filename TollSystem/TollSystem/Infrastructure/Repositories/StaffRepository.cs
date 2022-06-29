@@ -20,9 +20,13 @@ namespace TollSystem.Infrastructure.Repositories
 
         public Staff FindByCredentials(string username, string password)
         {
-            Staff staff = _table.Where(s => s.Username == username && s.Password == password).ToList()[0];
+            List<Staff> staff = _table.Where(s => s.Username == username && s.Password == password).ToList();
+            if (staff.Count == 1)
+            {
+                return staff[0];
+            }
 
-            return staff;
+            return null;
         }
     }
 }

@@ -10,7 +10,6 @@ namespace TollSystem.Core.Services
     public class TollBoothRepositoryService : RepositoryService<Tollbooth>, ITollBoothRepositoryService
     {
         private ITollBoothRepository _repository;
-        private ITollBoothModelService _modelService;
 
         public TollBoothRepositoryService(ITollBoothRepository repository) : base(repository)
         {
