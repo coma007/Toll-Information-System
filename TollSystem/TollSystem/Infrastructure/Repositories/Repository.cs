@@ -12,6 +12,8 @@ namespace TollSystem.Infrastructure.Repositories
         protected ModelContext _context = null;
         protected DbSet<T> _table = null;
 
+        public DbSet<T> Table => _table;
+
         public Repository(ModelContext context, DbSet<T> table)
         {
             _context = context;

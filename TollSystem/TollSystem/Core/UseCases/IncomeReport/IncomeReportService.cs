@@ -24,6 +24,7 @@ namespace TollSystem.Commands.IncomeReport
         public Dictionary<TollStationEntity, List<double>> getIncomePerStation(DateTime startDate, DateTime endDate)
         {
             Dictionary<TollStationEntity, List<double>> income = new Dictionary<TollStationEntity, List<double>>();
+            //ucitaj sve stanice
             List<TollStationEntity> stations = new List<TollStationEntity>();
             //List<Tollstation> stations = _stations.findAll();
 

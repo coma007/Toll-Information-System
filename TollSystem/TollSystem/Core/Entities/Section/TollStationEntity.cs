@@ -19,8 +19,13 @@ namespace TollSystem.Core.Entities
             TollBooths = new List<TollBoothEntity>();
         }
 
+        public TollStationEntity(string name) : this()
+        {
+
+        }
+
         public TollStationEntity(int id, string name, StationMasterEntity master, List<ReferentEntity> referents,
-                           List<TollBoothEntity> tollBooths) : base()
+                           List<TollBoothEntity> tollBooths) : this()
         {
             Id = id;
             Name = name;
