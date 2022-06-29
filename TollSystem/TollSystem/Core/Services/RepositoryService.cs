@@ -7,7 +7,7 @@ namespace TollSystem.Core.Services
 {
     public class RepositoryService<T> : IRepositoryService<T> where T : class
     {
-        private IRepository<T> _repository;
+        protected IRepository<T> _repository;
 
         public RepositoryService(IRepository<T> repository)
         {
