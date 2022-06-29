@@ -10,6 +10,7 @@ namespace TollSystem.Core.Services
     {
         public TransactionEntity ModelToEntity(Transaction transaction)
         {
+            if (transaction.Isdeleted == 1) return null;
             TransactionEntity transactionEntity = new TransactionEntity(transaction);
             return transactionEntity;
         }

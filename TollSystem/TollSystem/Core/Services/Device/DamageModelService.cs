@@ -10,6 +10,7 @@ namespace TollSystem.Core.Services
     {
         public DamageEntity ModelToEntity(Damage damage)
         {
+            if (damage.Isdeleted == 1) return null;
             DamageEntity damageEntity = new DamageEntity(damage);
             return damageEntity;
         }

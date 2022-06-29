@@ -10,6 +10,7 @@ namespace TollSystem.Core.Services
     {
         public DeviceEntity ModelToEntity(Device device)
         {
+            if (device.Isdeleted == 1) return null;
             DeviceEntity deviceEntity = null;
             switch (device.Devicetype)
             {

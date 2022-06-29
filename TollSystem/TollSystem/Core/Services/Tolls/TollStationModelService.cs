@@ -19,6 +19,7 @@ namespace TollSystem.Core.Services
 
         public TollStationEntity ModelToEntity(Tollstation station)
         {
+            if (station.Isdeleted == 1) return null;
             return new TollStationEntity(station, "l");
         }
     }

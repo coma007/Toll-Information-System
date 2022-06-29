@@ -10,6 +10,7 @@ namespace TollSystem.Core.Services
     {
         public PricelistEntity ModelToEntity(Pricelist pricelist)
         {
+            if (pricelist.Isdeleted == 1) return null;
             return new PricelistEntity(pricelist);
         }
     }

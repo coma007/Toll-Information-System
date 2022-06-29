@@ -10,6 +10,7 @@ namespace TollSystem.Core.Services
     {
         public TransitEntity ModelToEntity(Transit transit)
         {
+            if (transit.Isdeleted == 1) return null;
             TransitEntity transitEntity = new TransitEntity(transit);
             return transitEntity;
         }

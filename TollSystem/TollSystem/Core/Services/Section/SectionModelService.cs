@@ -11,6 +11,7 @@ namespace TollSystem.Core.Services
     {
         public SectionEntity ModelToEntity(Section section, IRepositoryService<TollStationEntity> repository)
         {
+            if (section.Isdeleted == 1) return null;
             TollStationEntity station1 = repository.GetById(section.Tollstation1id);
             TollStationEntity station2 = repository.GetById(section.Tollstation2id);
             return new SectionEntity(section, station1, station2);

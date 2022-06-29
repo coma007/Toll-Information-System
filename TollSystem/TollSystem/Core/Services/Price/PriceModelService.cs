@@ -10,6 +10,7 @@ namespace TollSystem.Core.Services
     {
         public PriceEntity ModelToEntity(Price price, IRepositoryService<SectionEntity> repository)
         {
+            if (price.Isdeleted == 1) return null;
             SectionEntity section = repository.GetById(price.Sectionid);
             return new PriceEntity(price, section);
         }

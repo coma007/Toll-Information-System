@@ -11,6 +11,7 @@ namespace TollSystem.Core.Services.Users
 
         public StaffEntity ModelToEntity(Staff s)
         {
+            if (s.Isdeleted == 1) return null;
             StaffEntity staff = null;
             switch (s.Role)
             {
