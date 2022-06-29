@@ -17,7 +17,6 @@ namespace TollSystem
     public partial class App : Application
     {
         private NavigationStore _navigation;
-        private MainWindow _mainWindow;
 
         public App() {
             _navigation = NavigationStore.Instance();
@@ -25,13 +24,13 @@ namespace TollSystem
         protected override void OnStartup(StartupEventArgs e)
         {
             _navigation.CurrentViewModel = new LoginViewModel();
-            _mainWindow = new MainWindow()
+            MainWindow = new MainWindow()
             {
                 DataContext = new MainViewModel(_navigation)
             };
-            _mainWindow.Show();
-            using (ModelContext m = new ModelContext())
-            {
+            MainWindow.Show();
+            //using (ModelContext m = new ModelContext())
+            //{
 
                 //Tollstation t = m.Tollstation.Where(a => a.Id == 1).ToList()[0];
                 //Console.WriteLine(t);
@@ -39,7 +38,7 @@ namespace TollSystem
                 ////List<Device> d = m.Device.Where(c => c.Tollbooth == tb[0]).ToList();
                 ////m.Section.Add(new Section { Length = 100, Tollstation1 = t, Tollstation2 = t });
                 //m.SaveChanges();
-            }
+            //}
 
 
             base.OnStartup(e);

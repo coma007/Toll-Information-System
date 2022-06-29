@@ -22,5 +22,6 @@ namespace TollSystem.DesktopHost.Views
         {
             InitializeComponent();
         }
+
     }
 }

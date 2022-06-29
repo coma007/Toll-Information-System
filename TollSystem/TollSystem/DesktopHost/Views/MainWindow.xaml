@@ -5,15 +5,19 @@
         xmlns:views="clr-namespace:TollSystem.DesktopHost.Views"
         xmlns:viewmodels="clr-namespace:TollSystem.DesktopHost.Controllers"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         xmlns:local="clr-namespace:TollSystem"
         mc:Ignorable="d"
         WindowState="Maximized"
-        Title="MainWindow" Height="450" Width="800">
+        Title="TollSystem"
+        Width="500"
+        Height="500">
     <Grid>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
                 <views:LoginView/>
             </DataTemplate>
         </Grid.Resources>
+        <ContentControl Content="{Binding CurrentViewModel}" />
     </Grid>
 </Window>

@@ -2,7 +2,7 @@
 
 namespace TollSystem.DesktopHost.Controllers
 {
-    internal class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
     }
 }
