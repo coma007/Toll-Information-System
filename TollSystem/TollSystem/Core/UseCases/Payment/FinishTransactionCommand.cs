@@ -1,5 +1,7 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using TollSystem.Commands.TollPayment;
+using TollSystem.Core.Enumerations;
 using TollSystem.DesktopHost.Controllers;
 
 namespace TollSystem.Commands
@@ -19,6 +21,10 @@ namespace TollSystem.Commands
             double price = _referentViewModel.Price;
             double paid = _referentViewModel.Paid;
             _referentViewModel.Change = _paymentService.GetChange(price, paid);
+            int id = Int32.Parse(_referentViewModel.TicketId);
+            VehicleCategory category = _referentViewModel.SelectedCategory;
+            Currency currency = _referentViewModel.SelectedCurrency;
+            _paymentService.Payment(id, category, currency);
             _referentViewModel.IsRampEnabled = true;
             _referentViewModel.IsPaymentEnabled = false;
         }
