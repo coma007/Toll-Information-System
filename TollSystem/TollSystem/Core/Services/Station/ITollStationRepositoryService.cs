@@ -4,7 +4,7 @@ using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Services
 {
-    public interface ITollStationRepositoryService
+    public interface ITollStationRepositoryService : IRepositoryService<Tollstation>
     {
         public Tollstation FindById(int id);
 
