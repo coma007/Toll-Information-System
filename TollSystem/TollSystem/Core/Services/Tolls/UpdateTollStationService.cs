@@ -2,25 +2,26 @@
 using System.Collections.Generic;
 using System.Text;
 using TollSystem.Core.Entities;
+using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Services.Tolls
 {
     public class UpdateTollStationService
     {
-        private IRepositoryService<TollStationEntity> _repository;
-        public UpdateTollStationService(IRepositoryService<TollStationEntity> repository)
+        private ITollStationRepositoryService _repositoryModel;
+        private ITollStationModelService _model;
+        public UpdateTollStationService(ITollStationRepositoryService repositoryModel,
+                                        ITollStationModelService model)
         {
-            _repository = repository;
+            _repositoryModel = repositoryModel;
+            _model = model;
         }
 
         public void UpdateTollStation(TollStationEntity tollStation)
         {
-            TollStationEntity oldTollStation = _repository.GetById(tollStation.Id);
-            oldTollStation.Name = tollStation.Name;
-            oldTollStation.StationMaster = tollStation.StationMaster;
-            oldTollStation.Referents = tollStation.Referents;
-            _repository.Update(oldTollStation);
-            _repository.Save();
+            Tollstation oldTollStationModel = _model.EntityToModel(tollStation);
+            _repositoryModel.Update(oldTollStationModel);
+            _repositoryModel.Save();
         }
     }
 }
