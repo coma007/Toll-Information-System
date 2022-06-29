@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon />
@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="DesktopHost\Presenters\" />
     <Folder Include="Infrastructure\Database\" />
-    <Folder Include="Infrastructure\Repositories\" />
   </ItemGroup>
 
   <ItemGroup>

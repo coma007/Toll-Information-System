@@ -1,0 +1,15 @@
+drop table transaction;
+drop table transit;
+drop table tag;
+drop table ticket;
+drop table price;
+drop table damage;
+drop table salesplace;
+drop table pricelist;
+drop table staff;
+drop table scanner;
+drop table DEVICE;
+drop table tollbooth;
+drop table section;
+drop table tollstation;
+drop sequence id_seq;

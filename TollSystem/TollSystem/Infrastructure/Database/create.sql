@@ -158,3 +158,106 @@ CREATE TABLE damage (
     CONSTRAINT damage_deviceId_fk FOREIGN KEY (deviceId) REFERENCES device(id),
     CONSTRAINT damageDeleted_c CHECK(isDeleted = 0 or isDeleted = 1)
 );
+
+CREATE TABLE ticket (
+    id integer NOT NULL,
+    category varchar(5) NOT NULL check (category in ('I', 'Ia', 'II', 'III', 'IV')),
+    licensePlate varchar(15) NOT NULL,
+    isDeleted integer DEFAULT 0 NOT NULL,
+    CONSTRAINT ticket_PK PRIMARY KEY (id),
+    CONSTRAINT ticketDeleted_c CHECK(isDeleted = 0 or isDeleted = 1)
+);
+
+CREATE OR REPLACE TRIGGER ticketId
+BEFORE INSERT ON ticket
+FOR EACH ROW
+  WHEN (new.id IS NULL)
+BEGIN
+  :new.id := ID_SEQ.NEXTVAL;
+END;
+/
+
+CREATE TABLE price (
+    pricelistId integer NOT NULL,
+    ordinalNumber integer NOT NULL,
+    category varchar(5) NOT NULL check (category in ('I', 'Ia', 'II', 'III', 'IV')),
+    sectionId integer,
+    priceRSD integer NOT NULL,
+    priceEUR number(5,2) NOT NULL,
+    isDeleted integer DEFAULT 0 NOT NULL,
+    CONSTRAINT price_PK PRIMARY KEY (pricelistId, ordinalNumber),
+    CONSTRAINT price_pricelist_FK FOREIGN KEY (pricelistId) references pricelist (id), 
+    CONSTRAINT price_section_FK FOREIGN KEY (sectionId) references section (id),
+    CONSTRAINT priceDeleted_c CHECK(isDeleted = 0 or isDeleted = 1),
+    CONSTRAINT priceRSD_check CHECK(priceRSD > 0),
+    CONSTRAINT priceEUR_check CHECK(priceEUR > 0)
+);
+
+CREATE TABLE tag (
+    id integer NOT NULL,
+    currentBalance integer NOT NULL,
+    category varchar(5) NOT NULL check (category in ('I', 'Ia', 'II', 'III', 'IV')),
+    licensePlate varchar(15) NOT NULL,
+    expirationDate date,
+    isDeleted integer DEFAULT 0 NOT NULL,
+    CONSTRAINT tag_PK PRIMARY KEY (id),
+    CONSTRAINT tagBalance_check CHECK(currentBalance > 0),
+    CONSTRAINT tagDeleted_c CHECK(isDeleted = 0 or isDeleted = 1)
+);
+
+CREATE OR REPLACE TRIGGER tagId
+BEFORE INSERT ON tag
+FOR EACH ROW
+  WHEN (new.id IS NULL)
+BEGIN
+  :new.id := ID_SEQ.NEXTVAL;
+END;
+/
+
+CREATE TABLE transit (
+    id integer NOT NULL,
+    entranceStationId integer NOT NULL,
+    entranceStationBoothId integer NOT NULL,
+    exitStationId integer,
+    exitStationBoothId integer,
+    entranceTime date NOT NULL,
+    exitTime date,
+    tagId integer,
+    ticketId integer,
+    isDeleted integer DEFAULT 0 NOT NULL,
+    CONSTRAINT transit_PK PRIMARY KEY (id),
+    CONSTRAINT transitTag_FK FOREIGN KEY (tagId) references tag (id),
+    CONSTRAINT transitTicket_FK FOREIGN KEY (ticketId) references ticket (id),
+    CONSTRAINT transitEntrance_FK FOREIGN KEY (entranceStationId, entranceStationBoothId) references tollbooth (stationId, ordinalNumber),
+    CONSTRAINT transitExit_FK FOREIGN KEY (exitStationId, exitStationBoothId) references tollbooth (stationId, ordinalNumber),
+    CONSTRAINT transitDeleted_c CHECK(isDeleted = 0 or isDeleted = 1)
+);
+
+CREATE OR REPLACE TRIGGER transitId
+BEFORE INSERT ON transit
+FOR EACH ROW
+  WHEN (new.id IS NULL)
+BEGIN
+  :new.id := ID_SEQ.NEXTVAL;
+END;
+/
+
+CREATE TABLE transaction (
+    id integer NOT NULL,
+    transitId integer NOT NULL,
+    price NUMBER(10,2) NOT NULL,
+    currency varchar(3) NOT NULL check (currency in ('EUR', 'RSD')),
+    isDeleted integer DEFAULT 0 NOT NULL,
+    CONSTRAINT transaction_PK PRIMARY KEY (id),
+    CONSTRAINT transactionTransit_FK FOREIGN KEY (transitId) references transit (id),
+    CONSTRAINT transactionDeleted_c CHECK(isDeleted = 0 or isDeleted = 1)
+);
+
+CREATE OR REPLACE TRIGGER transactionId
+BEFORE INSERT ON transaction
+FOR EACH ROW
+  WHEN (new.id IS NULL)
+BEGIN
+  :new.id := ID_SEQ.NEXTVAL;
+END;
+/
