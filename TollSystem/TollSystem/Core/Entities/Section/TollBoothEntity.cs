@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class TollBoothEntity
+    public class TollBoothEntity
     {
         public int OrdinalNumber { get; set; }
         public TollStationEntity TollStation { get; set; }
