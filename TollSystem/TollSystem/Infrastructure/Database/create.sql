@@ -261,3 +261,21 @@ BEGIN
   :new.id := ID_SEQ.NEXTVAL;
 END;
 /
+
+create table policeReport (
+    id integer not null,
+    licensePlate varchar(15) not null,
+    reportDate date not null,
+    speed decimal(4, 1) not null,
+    CONSTRAINT policeReport_PK PRIMARY KEY (id),
+    CONSTRAINT policeReport_speed_ch CHECK (speed >= 130)
+);
+
+CREATE OR REPLACE TRIGGER policeReportId
+BEFORE INSERT ON policeReport
+FOR EACH ROW
+  WHEN (new.id IS NULL)
+BEGIN
+  :new.id := ID_SEQ.NEXTVAL;
+END;
+/

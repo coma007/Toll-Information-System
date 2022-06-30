@@ -1,3 +1,4 @@
+drop table policeReport;
 drop table transaction;
 drop table transit;
 drop table tag;
