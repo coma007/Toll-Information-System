@@ -20,7 +20,7 @@ namespace TollSystem.Core.Services
 
         public void DeleteTollStation(TollStationEntity tollStation)
         {
-            Tollstation station = _model.EntityToModel(tollStation);
+            Tollstation station = _repository.FindById(tollStation.Id);
             station.Isdeleted = 1;
             _repository.Update(station);
             _repository.Save();

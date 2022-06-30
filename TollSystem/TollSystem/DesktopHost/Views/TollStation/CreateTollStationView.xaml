@@ -77,7 +77,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock TextAlignment="Left"
-                                               Text="{Binding OtherName}"
+                                               Text="{Binding Station}"
                                                Width="300" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -86,8 +86,8 @@
                                         Header="Dužina u kilometrima">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock TextAlignment="Left"
-                                               Text="{Binding OtherName}"
+                                    <TextBox TextAlignment="Center"
+                                               Text="{Binding Length}"
                                                Width="300" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>

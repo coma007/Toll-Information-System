@@ -21,6 +21,7 @@ namespace TollSystem.Commands
             TollStationEntity station = _viewModel.SelectedStation.Station;
             IDeleteTollStationService deleteStation = new DeleteTollStationService(ServiceContainer.TollStationRepositoryService, ServiceContainer.TollStationModelService);
             deleteStation.DeleteTollStation(station);
+            _viewModel.GetAllStations();
         }
     }
 }
