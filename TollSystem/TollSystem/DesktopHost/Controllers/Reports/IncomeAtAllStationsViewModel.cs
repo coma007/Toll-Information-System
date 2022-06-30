@@ -18,7 +18,7 @@ namespace TollSystem.DesktopHost.Controllers
             set
             {
                 _startDateString = value;
-                OnPropertyChanged(StartDateString);
+                OnPropertyChanged(nameof(StartDateString));
             }
         }
 
@@ -30,7 +30,7 @@ namespace TollSystem.DesktopHost.Controllers
             set
             {
                 _endDateString = value;
-                OnPropertyChanged(EndDateString);
+                OnPropertyChanged(nameof(EndDateString));
             }
         }
 
