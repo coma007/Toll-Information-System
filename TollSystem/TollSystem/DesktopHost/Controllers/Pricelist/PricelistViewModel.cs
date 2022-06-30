@@ -38,6 +38,8 @@ namespace TollSystem.DesktopHost.Controllers
 
         public void FillPrices()
         {
+            _prices.Clear();
+
             foreach (Price p in _pricesRepository.FindByPricelistId((int)_currentPricelist.Id))
             {
                 _prices.Add(new PriceListItem(ServiceContainer.PriceModelService.ModelToEntity(p)));
