@@ -51,9 +51,17 @@ namespace TollSystem.DesktopHost.Controllers
             _stations = new ObservableCollection<TollStationListItem>();
             foreach (Tollstation station in service.GetAll())
             {
+                List<Tollbooth> entities = boothService.FindByStationId((int)station.Id);
                 TollStationEntity stationEntity = modelService.ModelToEntity(station);
                 if (stationEntity == null) continue;
                 TollStationListItem listItem = new TollStationListItem(stationEntity);
+                listItem.BoothsNumber = entities.Count;
+                Staff staff = ServiceContainer.StaffRepositoryService.FindMasterByStation((int)station.Id);
+                if (staff != null)
+                {
+                    StaffEntity entity = staffModel.ModelToEntity(staff);
+                    listItem.StationMaster = entity;
+                }
                 _stations.Add(listItem);
             }
             OnPropertyChanged(nameof(Stations));
