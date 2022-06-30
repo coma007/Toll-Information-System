@@ -5,6 +5,7 @@ using System.Windows;
 using TollSystem.Commands;
 using TollSystem.Commands.TollStationCreation;
 using TollSystem.Core.Entities;
+using TollSystem.DesktopHost;
 using TollSystem.DesktopHost.Controllers;
 using TollSystem.DesktopHost.ListItems;
 
@@ -33,7 +34,9 @@ namespace TollSystem.Commands
                     sections.Add(s.Station.Id, new List<double>() { s.Length, s.PriceRSD, s.PriceEUR });
                 }
                 _creator.CreateStation(_model.Name, _model.BoothsNumber, sections);
+                NavigationStore.Instance().CurrentViewModel = new ShowTollStationViewModel();
             }
+
         }
     }
 }
