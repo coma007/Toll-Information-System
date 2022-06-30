@@ -24,6 +24,11 @@ namespace TollSystem.Commands
 
         public override void Execute(object parameter)
         {
+            if (_model.Description is null)
+            {
+                MessageBox.Show("Unesite opis !");
+                return;
+            }
             string type = null;
             string scannerType = null;
             switch (_model.SelectedDevice)

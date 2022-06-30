@@ -15,6 +15,7 @@ namespace TollSystem.Commands
 
         async public override void Execute(object parameter)
         { 
+            _referentViewModel.IsRampEnabled = false;
             int lastPosition = _referentViewModel.RampPosition;
             while (_referentViewModel.RampPosition != -50) {
                 _referentViewModel.RampPosition -= 1;
@@ -23,7 +24,6 @@ namespace TollSystem.Commands
             _referentViewModel.SemaphoreState = "Green";
             await Task.Delay(3000);
             _referentViewModel.ResetForm();
-            _referentViewModel.IsRampEnabled = false;
             while (_referentViewModel.RampPosition != lastPosition)
             {
                 _referentViewModel.RampPosition += 1;

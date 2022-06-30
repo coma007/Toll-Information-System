@@ -28,6 +28,7 @@
             <Label Grid.Row="1"
                    Content="Vrsta uređaja: "
                    HorizontalAlignment="Center"
+                   Margin="0 40 0 0"
                    VerticalAlignment="Top" />
             <ComboBox Grid.Row="1"
                       HorizontalAlignment="Center"
@@ -38,14 +39,15 @@
 
             <Label Grid.Row="2"
                    Content="Opis kvara: "
+                   Margin="0 -20 0 0"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top" />
             <TextBox Grid.Row="2"
                      Text="{Binding Description}"
                      HorizontalAlignment="Center"
                      TextWrapping="Wrap"
-                     Width="265"
-                     Height="80" />
+                     Width="500"
+                     Height="150" />
 
             <Button Grid.Row="7"
                     Grid.ColumnSpan="2"

@@ -18,7 +18,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="Login to your account"
+        <TextBlock Text="Prijava na postojeći nalog"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Bottom"
                    FontSize="24"
