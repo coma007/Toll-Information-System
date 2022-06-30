@@ -13,8 +13,9 @@ namespace TollSystem.Infrastructure.Repositories
 
         public Transit FindByTicketId(int id)
         {
-            Transit transit = _table.Where(t => t.Ticketid == id).ToList()[0];
-            return transit;
+            List<Transit> transits = _table.Where(t => t.Ticketid == id).ToList();
+            if (transits.Count > 0) return transits[0];
+            return null;
         }
 
         public Transit FindByTagId(int id)

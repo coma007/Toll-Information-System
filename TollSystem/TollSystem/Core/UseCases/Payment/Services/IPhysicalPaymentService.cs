@@ -12,7 +12,7 @@ namespace TollSystem.Commands.TollPayment
 
         public string FindLicensePlate(int ticketId);
 
-        public bool CheckSpeed(int ticketId);
+        public bool CheckSpeed(int ticketId, string licensePlate);
 
         public double GetPrice(int ticketId, VehicleCategory category, Currency c = Currency.RSD);
 

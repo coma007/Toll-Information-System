@@ -22,15 +22,20 @@ namespace TollSystem.Commands
         }
         public override void Execute(object parameter)
         {
-            if (_model.Name == null || _model.Name.Trim().Equals(""))
+            if (_model.Name == null || _model.Name.Trim().Equals("") || _model.BoothsNumber <= 0)
             {
-                MessageBox.Show("Niste uneli ime stanice.");
+                MessageBox.Show("Niste unijeli sve podatke!");
             }
             else
             {
                 Dictionary<int, List<double>> sections = new Dictionary<int, List<double>>();
                 foreach (SectionListItem s in _model.Sections)
                 {
+                    if (s.Length <= 0 || s.PriceEUR <= 0 || s.PriceRSD <= 0) 
+                    {
+                        MessageBox.Show("Nisu uneseni svi podaci! ");
+                        return;
+                    }
                     sections.Add(s.Station.Id, new List<double>() { s.Length, s.PriceRSD, s.PriceEUR });
                 }
                 _creator.CreateStation(_model.Name, _model.BoothsNumber, sections);

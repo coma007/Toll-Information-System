@@ -49,11 +49,11 @@ namespace TollSystem.Commands.TollPayment
         public string FindLicensePlate(int ticketId)
         {
             Ticket t = _tickets.GetById((decimal)ticketId);
-
+            if (t == null) return null;
             return t.Licenseplate;
         }
 
-        public bool CheckSpeed(int ticketId)
+        public bool CheckSpeed(int ticketId, string licensePlate)
         {
             Transit t = _transit.FindByTicketId(ticketId);
             Section s = _sections.Table.Where(sec =>
@@ -63,6 +63,10 @@ namespace TollSystem.Commands.TollPayment
 
             if ((length / time) > 130)
             {
+                Policereport report = new Policereport();
+                report.Licenseplate = licensePlate;
+                report.Reportdate = DateTime.Now;
+                report.Speed = Decimal.Round((decimal)(length / time), 1);
                 return false;
             }
             return true;
