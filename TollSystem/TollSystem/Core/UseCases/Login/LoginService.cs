@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using TollSystem.Core.Entities;
-using TollSystem.Core.Services.Users;
+using TollSystem.Core.Services;
+using TollSystem.Core.UseCases.Login;
 
 namespace TollSystem.Core.UseCases
 {
-    public class LoginService
+    public class LoginService : ILoginService
     {
         private IStaffRepositoryService _repository;
 

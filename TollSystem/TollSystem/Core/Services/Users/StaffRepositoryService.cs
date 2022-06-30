@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using TollSystem.Core.Entities;
-using TollSystem.Core.Services.Users;
+using TollSystem.Core.Services;
 using TollSystem.Infrastructure.Models;
 using TollSystem.Infrastructure.Repositories;
 
@@ -13,9 +13,9 @@ namespace TollSystem.Core.Services
         private IStaffModelService _modelService;
         private IStaffRepository _repository;
         //ovo promeni
-        private IStationRepositoryService _stations;
+        private ITollStationRepositoryService _stations;
 
-        public StaffRepositoryService(IStaffRepository repository, IStaffModelService modelService, IStationRepositoryService stations)
+        public StaffRepositoryService(IStaffRepository repository, IStaffModelService modelService, ITollStationRepositoryService stations)
         {
             _repository = repository;
             _modelService = modelService;
@@ -37,7 +37,10 @@ namespace TollSystem.Core.Services
         public StaffEntity FindByCredentials(string username, string password)
         {
             Staff user = _repository.FindByCredentials(username, password);
-
+            if (user is null)
+            {
+                return null;
+            }
             Tollstation station = _stations.FindById((int)user.Stationid);
             user.Station = station;
             return _modelService.ModelToEntity(user);

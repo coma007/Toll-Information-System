@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TollSystem.Core.Entities
+namespace TollSystem.Core.Services
 {
-    public class TicketReaderEntity : DeviceEntity
+    public class ScannerRepositoryService
     {
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Entities
 {
@@ -16,6 +17,12 @@ namespace TollSystem.Core.Entities
         {
             Description = description;
             DeviceId = deviceId;
+        }
+
+        public DamageEntity(Damage damage)
+        {
+            Description = damage.Description;
+            DeviceId = (int)damage.Deviceid;
         }
     }
 }

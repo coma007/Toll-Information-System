@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TollSystem.Core.Enumerations;
 using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Infrastructure.Repositories
@@ -21,6 +22,11 @@ namespace TollSystem.Infrastructure.Repositories
         public List<Price> FindByPricelistAndSectionId(int pricelistId, int sectionId)
         {
             return _table.Where(p => p.Pricelistid == pricelistId && p.Sectionid == sectionId).ToList();
+        }
+
+        public Price FindBiggestPrice(int pricelistId, VehicleCategory category)
+        {
+            return _table.Where(p => p.Pricelistid == pricelistId && p.Category == category.ToString()).OrderBy(p => p.Pricersd).ToList().Last();
         }
     }
 }
