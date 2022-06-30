@@ -71,7 +71,7 @@ namespace TollSystem.Commands
                     _damage.Save();
                 }
             }
-
+            _model.GetDevices();
 
         }
     }
