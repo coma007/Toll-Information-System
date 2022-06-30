@@ -21,7 +21,7 @@ namespace TollSystem.Infrastructure.Repositories
         public Staff FindByCredentials(string username, string password)
         {
             List<Staff> staff = _table.Where(s => s.Username == username && s.Password == password).ToList();
-            if (staff.Count == 1)
+            if (staff.Count >= 1)
             {
                 return staff[0];
             }
