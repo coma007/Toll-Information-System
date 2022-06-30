@@ -4,9 +4,9 @@ using System.Text;
 using TollSystem.Core.Entities;
 using TollSystem.Infrastructure.Models;
 
-namespace TollSystem.Core.Services.Tolls
+namespace TollSystem.Core.Services
 {
-    public class UpdateTollStationService
+    public class UpdateTollStationService : IUpdateTollStationService
     {
         private ITollStationRepositoryService _repositoryModel;
         private ITollStationModelService _model;
