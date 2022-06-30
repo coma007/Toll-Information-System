@@ -13,8 +13,13 @@ namespace TollSystem.Infrastructure.Repositories
 
         public Damage FindByDeviceId(int id)
         {
-            Damage damage = _table.Where(t => id == t.Deviceid).ToList()[0];
-            return damage;
+            List<Damage> damage = _table.Where(t => id == t.Deviceid).ToList();
+
+            if (damage.Count >= 1)
+            {
+                return damage[0];
+            }
+            return null;
         }
 
     }

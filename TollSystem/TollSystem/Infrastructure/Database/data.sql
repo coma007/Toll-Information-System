@@ -461,6 +461,41 @@ insert into transaction (transitId, price, currency) values (203, 240, 'RSD');
 insert into transaction (transitId, price, currency) values (204, 2.50, 'EUR');
 insert into transaction (transitId, price, currency) values (205, 180, 'RSD');
 
+
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (1, 1, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (1, 2, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (1, 3, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (1, 4, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (1, 5, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (1, 6, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (1, 7, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (1, 8, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (1, 9, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (1, 10, 'SCANNER');
+
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (2, 1, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (2, 2, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (2, 3, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (2, 4, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (2, 5, 'SCANNER');
+
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (3, 1, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (3, 2, 'SCANNER');
+
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (4, 1, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (4, 2, 'SCANNER');
+
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (5, 1, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (5, 2, 'SCANNER');
+
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (6, 1, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (6, 2, 'SCANNER');
+
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (7, 1, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (7, 2, 'SCANNER');
+
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (8, 1, 'SCANNER');
+INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (8, 2, 'SCANNER');
 commit;
 
-select * from transaction;
+select * from device;
