@@ -5,7 +5,7 @@ using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Entities
 {
-    class TollStationEntity
+    public class TollStationEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -19,8 +19,19 @@ namespace TollSystem.Core.Entities
             TollBooths = new List<TollBoothEntity>();
         }
 
+        public TollStationEntity(string name) : this()
+        {
+            Name = name;
+        }
+
+        public TollStationEntity(int id, string name) : this()
+        {
+            Id = id;
+            Name = name;
+        }
+
         public TollStationEntity(int id, string name, StationMasterEntity master, List<ReferentEntity> referents,
-                           List<TollBoothEntity> tollBooths) : base()
+                           List<TollBoothEntity> tollBooths) : this()
         {
             Id = id;
             Name = name;
@@ -48,6 +59,11 @@ namespace TollSystem.Core.Entities
                     StationMaster = null;
                     break;
             }
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

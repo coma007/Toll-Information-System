@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using TollSystem.Core.Entities;
 using TollSystem.DesktopHost;
 using TollSystem.DesktopHost.Controllers;
 using TollSystem.Infrastructure.Models;
@@ -42,8 +43,24 @@ namespace TollSystem
                 //m.SaveChanges();
             //}
 
-
+            //ServiceContainer.TollStationCreationService.CreateStation("Ime", 5, new Dictionary<int, List<double>>()
+            //{
+            //    { 1, new List<double>() { 100, 100, 5.00 } },
+            //    { 2, new List<double>() { 100, 100, 5.00 } },
+            //    { 3, new List<double>() { 100, 100, 5.00 } },
+            //    { 4, new List<double>() { 100, 100, 5.00 } },
+            //    { 5, new List<double>() { 100, 100, 5.00 } },
+            //    { 6, new List<double>() { 100, 100, 5.00 } },
+            //    { 7, new List<double>() { 100, 100, 5.00 } },
+            //    { 8, new List<double>() { 100, 100, 5.00 } }
+            //});
             base.OnStartup(e);
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            RepositoryContainer.Context.Dispose();
+            base.OnExit(e);
         }
     }
 }

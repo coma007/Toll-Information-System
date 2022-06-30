@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Entities
 {
-    class DamageEntity
+    public class DamageEntity
     {
         public string Description { get; set; }
         public int DeviceId { get; set; }
@@ -16,6 +17,12 @@ namespace TollSystem.Core.Entities
         {
             Description = description;
             DeviceId = deviceId;
+        }
+
+        public DamageEntity(Damage damage)
+        {
+            Description = damage.Description;
+            DeviceId = (int)damage.Deviceid;
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TollSystem.Core.Entities
 {
-    class SalesPlaceEntity
+    public class SalesPlaceEntity
     {
         public string Name { get; set; }
         public Credentials Credentials { get; set; }

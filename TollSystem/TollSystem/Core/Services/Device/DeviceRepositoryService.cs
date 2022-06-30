@@ -8,11 +8,18 @@ using TollSystem.Infrastructure.Repositories;
 namespace TollSystem.Core.Services
 {
 
-    class DeviceRepositoryService : RepositoryService<Device>, IDeviceRepositoryService
+    public class DeviceRepositoryService : RepositoryService<Device>, IDeviceRepositoryService
     {
-        public DeviceRepositoryService(IRepository<Device> repository) : base(repository)
-        {
+        private IDeviceRepository _repository;
 
+        public DeviceRepositoryService(IDeviceRepository repository) : base(repository)
+        {
+            _repository = repository;
+        }
+
+        public List<Device> FindByTollBooth(int stationId, int tollBoothNumber)
+        {
+            return _repository.FindByTollBooth(stationId, tollBoothNumber);
         }
     }
 }

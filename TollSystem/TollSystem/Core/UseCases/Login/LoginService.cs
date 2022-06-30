@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using TollSystem.Core.Entities;
-using TollSystem.Core.Services.Users;
+using TollSystem.Core.Services;
+using TollSystem.Core.UseCases.Login;
 
 namespace TollSystem.Core.UseCases
 {
-    public class LoginService
+    public class LoginService : ILoginService
     {
         private IStaffRepositoryService _repository;
 
@@ -13,7 +14,7 @@ namespace TollSystem.Core.UseCases
             _repository = repository;
         }
 
-        private StaffEntity findUser(string username, string password)
+        private StaffEntity FindUser(string username, string password)
         {
             StaffEntity user = _repository.FindByCredentials(username, password);
 
@@ -22,7 +23,7 @@ namespace TollSystem.Core.UseCases
 
         public StaffEntity Login(string username, string password)
         {
-            StaffEntity user = findUser(username, password);
+            StaffEntity user = FindUser(username, password);
             return user;
         }
     }

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using TollSystem.Core.Enumerations;
+using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Entities
 {
-    class TagEntity
+    public class TagEntity
     {
         public int Id { get; set; }
         public VehicleCategory Category { get; set; }
@@ -26,6 +27,16 @@ namespace TollSystem.Core.Entities
             LicensePlate = licensePlate;
             ExpirationDate = expirationDate;
             Transits = transits;
+        }
+
+        public TagEntity(Tag tag)
+        {
+            Id = (int)tag.Id;
+            Category = (VehicleCategory)Enum.Parse(typeof(VehicleCategory), tag.Category, true);
+            CurrentAmountRSD = (int)tag.Currentbalance;
+            LicensePlate = tag.Licenseplate;
+            ExpirationDate = (DateTime)tag.Expirationdate;
+            Transits = null;
         }
     }
 }

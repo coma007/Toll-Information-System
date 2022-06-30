@@ -17,6 +17,7 @@ namespace TollSystem.Infrastructure.Models
 
         public virtual DbSet<Damage> Damage { get; set; }
         public virtual DbSet<Device> Device { get; set; }
+        public virtual DbSet<Policereport> Policereport { get; set; }
         public virtual DbSet<Price> Price { get; set; }
         public virtual DbSet<Pricelist> Pricelist { get; set; }
         public virtual DbSet<Salesplace> Salesplace { get; set; }
@@ -35,7 +36,8 @@ namespace TollSystem.Infrastructure.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseOracle("Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User ID=TollSystem;Password=ftn;Persist Security Info=True");
+                optionsBuilder.UseOracle("Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User ID=TollSystem;Password=ftn;Persist Security Info=True",
+                    options => options.UseOracleSQLCompatibility("11"));
             }
         }
 
@@ -110,6 +112,30 @@ namespace TollSystem.Infrastructure.Models
                     .HasForeignKey(d => new { d.Stationid, d.Tollboothnumber })
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("DEVICE_FK");
+            });
+
+            modelBuilder.Entity<Policereport>(entity =>
+            {
+                entity.ToTable("POLICEREPORT");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("NUMBER(38)")
+                    .ValueGeneratedOnAdd();
+
+                entity.Property(e => e.Licenseplate)
+                    .IsRequired()
+                    .HasColumnName("LICENSEPLATE")
+                    .HasMaxLength(15)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Reportdate)
+                    .HasColumnName("REPORTDATE")
+                    .HasColumnType("DATE");
+
+                entity.Property(e => e.Speed)
+                    .HasColumnName("SPEED")
+                    .HasColumnType("NUMBER(4,1)");
             });
 
             modelBuilder.Entity<Price>(entity =>
@@ -244,7 +270,7 @@ namespace TollSystem.Infrastructure.Models
                 entity.Property(e => e.Scannertype)
                     .IsRequired()
                     .HasColumnName("SCANNERTYPE")
-                    .HasMaxLength(10)
+                    .HasMaxLength(15)
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.IdNavigation)

@@ -7,9 +7,7 @@
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
-             Height="600"
-             Width="1200"
-             Background="White">
+             d:Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
@@ -17,7 +15,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <TextBlock
-                Text="Price list"
+                Text="Cjenovnik"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 FontSize="50">
@@ -25,29 +23,57 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <ListView Width="auto" Height="400" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ListView ItemsSource="{Binding Prices}"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="2"
+                      Grid.Row="2"
+                      Width="1200"
+                      Height="700"
+                      Background="#b9b9b9"
+                      SelectionMode="Single"
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Center">
                 <ListView.View>
-                    <GridView>
-                        <GridViewColumn Width="300" Header="Type">
+                    <GridView AllowsColumnReorder="False"
+                              ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
+                        <GridViewColumn Width="300"
+                                        Header="Cijena za">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock TextAlignment="Left" Width="130" Text="Naziv"></TextBlock>
+                                    <TextBlock TextAlignment="Center"
+                                               Text="{Binding PriceFor}"
+                                               Width="300" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-
-                        <GridViewColumn Width="300" Header="Category">
+                        <GridViewColumn Width="300"
+                                        Header="Kategorija">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock TextAlignment="Left" Width="130" Text="Naziv"></TextBlock>
+                                    <TextBlock TextAlignment="Center"
+                                               Text="{Binding Category}"
+                                               Width="300" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-
-                        <GridViewColumn Width="300" Header="Price">
+                        <GridViewColumn Width="300"
+                                        Header="Cijena u dinarima">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock TextAlignment="Left" Width="130" Text="Naziv"></TextBlock>
+                                    <TextBlock TextAlignment="Center"
+                                               Text="{Binding PriceRSD}"
+                                               Width="300" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="300"
+                                        Header="Cijena u evrima">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextAlignment="Center"
+                                               Text="{Binding PriceEUR}"
+                                               Width="300" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -55,5 +81,14 @@
                 </ListView.View>
             </ListView>
         </Grid>
+        <Button Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                Height="40"
+                Width="100"
+                Margin="0 0 50 100"
+                Content="Nazad"
+                Command="{Binding Back}"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" />
     </Grid>
 </UserControl>

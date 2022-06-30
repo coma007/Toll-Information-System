@@ -11,16 +11,62 @@
         WindowState="Maximized"
         Title="TollSystem"
         Width="500"
-        Height="500">
+        Height="500"
+        FontSize="16"
+        Background="#b9b9b9">
     <Grid>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
                 <views:LoginView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:TollStationViewModel}">
+            <DataTemplate DataType="{x:Type viewmodels:AdminViewModel}">
+                <views:AdminView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:ManagerViewModel}">
+                <views:ManagerView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:StationMasterViewModel}">
+                <views:StationMasterView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:ReferentViewModel}">
+                <views:ReferentView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:PricelistViewModel}">
+                <views:PricelistView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:ShowTollStationViewModel}">
                 <views:TollStationView />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:CreateTollStationViewModel}">
+                <views:CreateTollStationView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:UpdateTollStationViewModel}">
+                <views:UpdateTollStationView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:IncomeAtAllStationsViewModel}">
+                <views:IncomeAtAllStationsView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:IncomeAtStationViewModel}">
+                <views:IncomeAtStationView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:DamagesViewModel}">
+                <views:DamagesView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:ReportDamageViewModel}">
+                <views:ReportDamageView />
+            </DataTemplate>
+
         </Grid.Resources>
+        <Button Height="40"
+                Width="100"
+                Margin="0 0 50 50"
+                Content="Odjavi se"
+                Command="{Binding Logout}"
+                Visibility="{Binding LogoutVisibility}"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" />
         <ContentControl Content="{Binding CurrentViewModel}" />
     </Grid>
 </Window>

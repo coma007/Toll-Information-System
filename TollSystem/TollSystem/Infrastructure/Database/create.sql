@@ -44,7 +44,7 @@ create table DEVICE (
 
 create table SCANNER (
     id integer NOT NULL,
-    scannerType varchar(10) not null,
+    scannerType varchar(15) not null,
     isDeleted integer DEFAULT 0 NOT NULL,
     CONSTRAINT scanner_pk PRIMARY KEY(id),
     CONSTRAINT scanner_fk FOREIGN KEY (id) REFERENCES DEVICE(id),
@@ -255,6 +255,24 @@ CREATE TABLE transaction (
 
 CREATE OR REPLACE TRIGGER transactionId
 BEFORE INSERT ON transaction
+FOR EACH ROW
+  WHEN (new.id IS NULL)
+BEGIN
+  :new.id := ID_SEQ.NEXTVAL;
+END;
+/
+
+create table policeReport (
+    id integer not null,
+    licensePlate varchar(15) not null,
+    reportDate date not null,
+    speed decimal(4, 1) not null,
+    CONSTRAINT policeReport_PK PRIMARY KEY (id),
+    CONSTRAINT policeReport_speed_ch CHECK (speed >= 130)
+);
+
+CREATE OR REPLACE TRIGGER policeReportId
+BEFORE INSERT ON policeReport
 FOR EACH ROW
   WHEN (new.id IS NULL)
 BEGIN

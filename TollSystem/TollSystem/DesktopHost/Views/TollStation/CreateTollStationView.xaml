@@ -4,177 +4,128 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TollSystem.DesktopHost.Views"
+             xmlns:viewmodels="clr-namespace:TollSystem.DesktopHost.Controllers"
+             d:DataContext="{d:DesignInstance Type=viewmodels:CreateTollStationViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" 
-             d:DesignWidth="800"
-             Height="600"
-             Width="1200"
-             Background="White">
+             d:Background="White">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="7*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <TextBlock
-                Text="Create new toll station"
-                FontSize="30"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"/>
-        </Grid>
-        <Grid Grid.Row="1" Margin="0 50 0 0">
+        <Label Grid.Row="0"
+               Margin="30 50 0 0"
+               Grid.ColumnSpan="2"
+               Content="Kreiranje stanice"
+               FontSize="30"
+               HorizontalAlignment="Center" />
+        <Grid Grid.Column="0"
+              Margin="0 20 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"></ColumnDefinition>
-                <ColumnDefinition Width="1*"></ColumnDefinition>
-                <ColumnDefinition Width="1*"></ColumnDefinition>
-                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1.5*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Width="250">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"></RowDefinition>
-                    <RowDefinition Height="1*"></RowDefinition>
-                    <RowDefinition Height="1*"></RowDefinition>
-                    <RowDefinition Height="1*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <TextBlock
-                        Text="Input name"
-                        FontSize="20"
-                        VerticalAlignment="Center"/>
-                    <TextBox
-                        VerticalAlignment="Bottom"
-                        FontSize="20"
-                        Height="30"/>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <TextBlock
-                        Text="Number of toll booths"
-                        FontSize="20"
-                        VerticalAlignment="Center"/>
-                    <TextBox
-                        VerticalAlignment="Bottom"
-                        FontSize="20"
-                        Height="30"/>
-                </Grid>
-                <Grid Grid.Row="3">
-                    <Button
-                        Content="Create toll station"
-                        Height="30"
-                        VerticalAlignment="Bottom"/>
-                </Grid>
-            </Grid>
-            <Grid Grid.Column="1" Width="250">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"></RowDefinition>
-                    <RowDefinition Height="1*"></RowDefinition>
-                    <RowDefinition Height="1*"></RowDefinition>
-                    <RowDefinition Height="1*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <TextBlock
-                        Text="Length"
-                        FontSize="20"
-                        VerticalAlignment="Center"/>
-                    <TextBox
-                        VerticalAlignment="Bottom"
-                        FontSize="20"
-                        Height="30"/>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <TextBlock
-                        Text="Price RSD"
-                        FontSize="20"
-                        VerticalAlignment="Center"/>
-                    <TextBox
-                        VerticalAlignment="Bottom"
-                        FontSize="20"
-                        Height="30"/>
-                </Grid>
-                <Grid Grid.Row="2">
-                    <TextBlock
-                        Text="Price EUR"
-                        FontSize="20"
-                        VerticalAlignment="Center"/>
-                    <TextBox
-                        VerticalAlignment="Bottom"
-                        FontSize="20"
-                        Height="30"/>
-                </Grid>
-            </Grid>
-            <Grid Grid.Column="2" Width="250">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <ListView
-                        Width="200"
-                        Height="300"
-                        VerticalAlignment="Bottom"
-                        HorizontalAlignment="Center">
-                        <ListItem></ListItem>
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn
-                                    Width="190"
-                                    Header="Available toll stations">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock 
-                                                TextAlignment="Left"
-                                                Text="Naziv"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <Button
-                        Content="Add toll station"
-                        VerticalAlignment="Bottom"
-                        Height="30"
-                        Width="200"/>
-                </Grid>
-            </Grid>
-            <Grid Grid.Column="3" Width="250">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <ListView
-                        Width="200"
-                        Height="300"
-                        VerticalAlignment="Bottom"
-                        HorizontalAlignment="Center">
-                        <ListItem></ListItem>
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn
-                                    Width="190"
-                                    Header="Added toll stations">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock 
-                                                TextAlignment="Left"
-                                                Text="Naziv"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <Button
-                        Content="Finish"
-                        VerticalAlignment="Bottom"
-                        Height="30"
-                        Width="200"/>
-                </Grid>
-            </Grid>
+            <Label Grid.Row="1"
+                   Content="Naziv stanice: "
+                   Margin="345 0 0 0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Grid.Row="1"
+                     Text="{Binding Name}"
+                     HorizontalAlignment="Center"
+                     Width="265"
+                     Height="30" />
+
+            <Label Grid.Row="1"
+                   Grid.Column="1"
+                   Content="Broj naplatnih mjesta: "
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Grid.Row="1"
+                     Grid.Column="1"
+                     Text="{Binding BoothsNumber}"
+                     HorizontalAlignment="Left"
+                     Width="265"
+                     Height="30" />
+
+            <Button Grid.Row="7"
+                    Grid.ColumnSpan="2"
+                    Content="Sačuvaj"
+                    Command="{Binding Create}"
+                    Margin="0 -30 0 0"
+                    Height="40"
+                    Width="100"
+                    HorizontalAlignment="Center" />
+            <ListView ItemsSource="{Binding Sections}"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="2"
+                      Grid.Row="2"
+                      Width="1200"
+                      Height="450"
+                      Background="#b9b9b9"
+                      SelectionMode="Single"
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Center">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="False"
+                              ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
+                        <GridViewColumn Width="300"
+                                        Header="Naziv stanice">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextAlignment="Left"
+                                               Text="{Binding Station}"
+                                               Width="300" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="300"
+                                        Header="Dužina u kilometrima">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox TextAlignment="Center"
+                                               Text="{Binding Length}"
+                                               Width="300" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="300"
+                                        Header="Cijena u dinarima">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox TextAlignment="Center"
+                                               Text="{Binding PriceRSD}"
+                                             Width="300" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="300"
+                                        Header="Cijena u evrima">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox TextAlignment="Center"
+                                               Text="{Binding PriceEUR}"
+                                             Width="300" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+
         </Grid>
+        <Button Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                Height="40"
+                Width="100"
+                Margin="0 0 50 100"
+                Content="Nazad"
+                Command="{Binding Back}"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" />
     </Grid>
 </UserControl>
