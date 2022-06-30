@@ -12,7 +12,7 @@ namespace TollSystem.DesktopHost.Controllers
 {
     public class ReferentViewModel : BaseViewModel
     {
-        private PhysicalPaymentService _paymentService;
+        private IPhysicalPaymentService _paymentService = ServiceContainer.PhysicalPaymentService;
         private string _ticketId;
         public string TicketId
         {
@@ -25,11 +25,24 @@ namespace TollSystem.DesktopHost.Controllers
             get { return _entrance; }
             set { _entrance = value; OnPropertyChanged(nameof(Entrance)); }
         }
+        private string _entranceString;
+        public string EntranceString
+        {
+            get { return _entranceString; }
+            set { _entranceString = value; OnPropertyChanged(nameof(EntranceString)); }
+        }
         private TollStationEntity _exit;
         public TollStationEntity Exit
         {
             get { return _exit; }
             set { _exit = value; OnPropertyChanged(nameof(Exit)); }
+        }
+
+        private String _exitString;
+        public String ExitString
+        {
+            get { return _exitString; }
+            set { _exitString = value; OnPropertyChanged(nameof(ExitString)); }
         }
         private string _entranceTime;
         public string EntranceTime

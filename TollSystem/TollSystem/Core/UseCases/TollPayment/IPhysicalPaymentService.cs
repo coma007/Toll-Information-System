@@ -19,5 +19,6 @@ namespace TollSystem.Commands.TollPayment
         public double GetChange(double price, double paid);
 
         public void Payment(int ticketId, VehicleCategory category, Currency c = Currency.RSD);
+        public double GetBiggestPrice(VehicleCategory category, Currency c = Currency.RSD);
     }
 }

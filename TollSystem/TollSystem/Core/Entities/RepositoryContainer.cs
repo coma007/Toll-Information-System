@@ -30,7 +30,7 @@ namespace TollSystem.Core.Entities
 
         public static IDamageRepository DamageRepository => new DamageRepository(Context);
 
-        public static IRepository<Ticket> TicketRepository => new Repository<Ticket>(Context, Context.Ticket);
+        public static Repository<Ticket> TicketRepository => new Repository<Ticket>(Context, Context.Ticket);
 
         public static IRepository<Tag> TagRepository => new Repository<Tag>(Context, Context.Tag);
 

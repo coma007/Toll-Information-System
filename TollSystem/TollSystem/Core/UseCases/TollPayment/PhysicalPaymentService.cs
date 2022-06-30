@@ -48,7 +48,7 @@ namespace TollSystem.Commands.TollPayment
 
         public string FindLicensePlate(int ticketId)
         {
-            Ticket t = _tickets.GetById(ticketId);
+            Ticket t = _tickets.GetById((decimal)ticketId);
 
             return t.Licenseplate;
         }

@@ -11,7 +11,7 @@ namespace TollSystem.Commands
     public class LostTicketCommand : BaseCommand
     {
         private ReferentViewModel _referentViewModel;
-        private PhysicalPaymentService _paymentService;
+        private IPhysicalPaymentService _paymentService = ServiceContainer.PhysicalPaymentService;
 
         public LostTicketCommand(ReferentViewModel referentViewModel)
         {
@@ -21,6 +21,7 @@ namespace TollSystem.Commands
         public override void Execute(object parameter)
         {
             _referentViewModel.Exit = SystemCurrentData.CurrentStation;
+            _referentViewModel.ExitString = _referentViewModel.Exit.Name;
             _referentViewModel.ExitTime = DateTime.Now.ToString();
             if (_referentViewModel.SelectedCurrency == Currency.RSD)
                 _referentViewModel.Price = _paymentService.GetBiggestPrice(_referentViewModel.SelectedCategory);
