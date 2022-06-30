@@ -9,10 +9,12 @@ namespace TollSystem.DesktopHost.Controllers
     public class ManagerViewModel : BaseViewModel
     {
         public ICommand Pricelist { get; set; }
+        public ICommand Report { get; set; }
 
         public ManagerViewModel()
         {
             Pricelist = new NavigateCommand(typeof(PricelistViewModel));
+            Report = new NavigateCommand(typeof(IncomeAtAllStationsViewModel));
         }
     }
 }
