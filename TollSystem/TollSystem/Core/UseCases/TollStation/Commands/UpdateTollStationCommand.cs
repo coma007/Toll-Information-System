@@ -20,7 +20,7 @@ namespace TollSystem.Commands
 
         public override void Execute(object parameter)
         {
-            if (_viewModel.Name is null)
+            if (_viewModel.Name is null || _viewModel.Name.Trim().Equals(""))
             {
                 MessageBox.Show("Potrebno je unijeti naziv stanice !");
                 return;
