@@ -3,7 +3,7 @@ using TollSystem.DesktopHost.Controllers;
 
 namespace TollSystem.DesktopHost.ListItems
 {
-    class SectionListItem : BaseViewModel
+    public class SectionListItem : BaseViewModel
     {
         TollStationEntity _station;
         public TollStationEntity Station => _station;
