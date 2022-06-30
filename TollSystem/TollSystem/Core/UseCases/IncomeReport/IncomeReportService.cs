@@ -45,6 +45,11 @@ namespace TollSystem.Commands.IncomeReport
 
             foreach (Transit t in transit)
             {
+                if (t.Exitstationid is null)
+                {
+                    continue;
+                }
+
                 Transaction tr = _transactions.FindByTransitId((int)t.Id);
 
                 if (tr.Currency.Equals("EUR"))
