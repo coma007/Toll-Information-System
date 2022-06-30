@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace TollSystem.Infrastructure.Models
 {
@@ -15,26 +17,21 @@ namespace TollSystem.Infrastructure.Models
 
         public virtual DbSet<Damage> Damage { get; set; }
         public virtual DbSet<Device> Device { get; set; }
-        public virtual DbSet<Price> Price { get; set; }
+        public virtual DbSet<Policereport> Policereport { get; set; }
         public virtual DbSet<Pricelist> Pricelist { get; set; }
         public virtual DbSet<Salesplace> Salesplace { get; set; }
         public virtual DbSet<Scanner> Scanner { get; set; }
         public virtual DbSet<Section> Section { get; set; }
         public virtual DbSet<Staff> Staff { get; set; }
-        public virtual DbSet<Tag> Tag { get; set; }
-        public virtual DbSet<Ticket> Ticket { get; set; }
         public virtual DbSet<Tollbooth> Tollbooth { get; set; }
         public virtual DbSet<Tollstation> Tollstation { get; set; }
-        public virtual DbSet<Transaction> Transaction { get; set; }
-        public virtual DbSet<Transit> Transit { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseOracle("Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User ID=TollSystem;Password=ftn;Persist Security Info=True",
-                    options => options.UseOracleSQLCompatibility("11"));
+                optionsBuilder.UseOracle("Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User ID=TollSystem;Password=ftn;Persist Security Info=True");
             }
         }
 
@@ -111,54 +108,27 @@ namespace TollSystem.Infrastructure.Models
                     .HasConstraintName("DEVICE_FK");
             });
 
-            modelBuilder.Entity<Price>(entity =>
+            modelBuilder.Entity<Policereport>(entity =>
             {
-                entity.HasKey(e => new { e.Pricelistid, e.Ordinalnumber })
-                    .HasName("PRICE_PK");
+                entity.ToTable("POLICEREPORT");
 
-                entity.ToTable("PRICE");
-
-                entity.Property(e => e.Pricelistid)
-                    .HasColumnName("PRICELISTID")
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
                     .HasColumnType("NUMBER(38)");
 
-                entity.Property(e => e.Ordinalnumber)
-                    .HasColumnName("ORDINALNUMBER")
-                    .HasColumnType("NUMBER(38)");
-
-                entity.Property(e => e.Category)
+                entity.Property(e => e.Licenseplate)
                     .IsRequired()
-                    .HasColumnName("CATEGORY")
-                    .HasMaxLength(5)
+                    .HasColumnName("LICENSEPLATE")
+                    .HasMaxLength(15)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Isdeleted)
-                    .HasColumnName("ISDELETED")
-                    .HasColumnType("NUMBER(38)")
-                    .HasDefaultValueSql("0 ");
+                entity.Property(e => e.Reportdate)
+                    .HasColumnName("REPORTDATE")
+                    .HasColumnType("DATE");
 
-                entity.Property(e => e.Priceeur)
-                    .HasColumnName("PRICEEUR")
-                    .HasColumnType("NUMBER(5,2)");
-
-                entity.Property(e => e.Pricersd)
-                    .HasColumnName("PRICERSD")
-                    .HasColumnType("NUMBER(38)");
-
-                entity.Property(e => e.Sectionid)
-                    .HasColumnName("SECTIONID")
-                    .HasColumnType("NUMBER(38)");
-
-                entity.HasOne(d => d.Pricelist)
-                    .WithMany(p => p.Price)
-                    .HasForeignKey(d => d.Pricelistid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("PRICE_PRICELIST_FK");
-
-                entity.HasOne(d => d.Section)
-                    .WithMany(p => p.Price)
-                    .HasForeignKey(d => d.Sectionid)
-                    .HasConstraintName("PRICE_SECTION_FK");
+                entity.Property(e => e.Speed)
+                    .HasColumnName("SPEED")
+                    .HasColumnType("NUMBER(3,1)");
             });
 
             modelBuilder.Entity<Pricelist>(entity =>
@@ -243,7 +213,7 @@ namespace TollSystem.Infrastructure.Models
                 entity.Property(e => e.Scannertype)
                     .IsRequired()
                     .HasColumnName("SCANNERTYPE")
-                    .HasMaxLength(10)
+                    .HasMaxLength(15)
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.IdNavigation)
@@ -361,68 +331,6 @@ namespace TollSystem.Infrastructure.Models
                     .HasConstraintName("STAFF_FK");
             });
 
-            modelBuilder.Entity<Tag>(entity =>
-            {
-                entity.ToTable("TAG");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .HasColumnType("NUMBER(38)")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Category)
-                    .IsRequired()
-                    .HasColumnName("CATEGORY")
-                    .HasMaxLength(5)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Currentbalance)
-                    .HasColumnName("CURRENTBALANCE")
-                    .HasColumnType("NUMBER(38)");
-
-                entity.Property(e => e.Expirationdate)
-                    .HasColumnName("EXPIRATIONDATE")
-                    .HasColumnType("DATE");
-
-                entity.Property(e => e.Isdeleted)
-                    .HasColumnName("ISDELETED")
-                    .HasColumnType("NUMBER(38)")
-                    .HasDefaultValueSql("0 ");
-
-                entity.Property(e => e.Licenseplate)
-                    .IsRequired()
-                    .HasColumnName("LICENSEPLATE")
-                    .HasMaxLength(15)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Ticket>(entity =>
-            {
-                entity.ToTable("TICKET");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .HasColumnType("NUMBER(38)")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Category)
-                    .IsRequired()
-                    .HasColumnName("CATEGORY")
-                    .HasMaxLength(5)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Isdeleted)
-                    .HasColumnName("ISDELETED")
-                    .HasColumnType("NUMBER(38)")
-                    .HasDefaultValueSql("0 ");
-
-                entity.Property(e => e.Licenseplate)
-                    .IsRequired()
-                    .HasColumnName("LICENSEPLATE")
-                    .HasMaxLength(15)
-                    .IsUnicode(false);
-            });
-
             modelBuilder.Entity<Tollbooth>(entity =>
             {
                 entity.HasKey(e => new { e.Stationid, e.Ordinalnumber })
@@ -469,109 +377,6 @@ namespace TollSystem.Infrastructure.Models
                     .HasColumnName("NAME")
                     .HasMaxLength(30)
                     .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Transaction>(entity =>
-            {
-                entity.ToTable("TRANSACTION");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .HasColumnType("NUMBER(38)")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Currency)
-                    .IsRequired()
-                    .HasColumnName("CURRENCY")
-                    .HasMaxLength(3)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Isdeleted)
-                    .HasColumnName("ISDELETED")
-                    .HasColumnType("NUMBER(38)")
-                    .HasDefaultValueSql("0 ");
-
-                entity.Property(e => e.Price)
-                    .HasColumnName("PRICE")
-                    .HasColumnType("NUMBER(10,2)");
-
-                entity.Property(e => e.Transitid)
-                    .HasColumnName("TRANSITID")
-                    .HasColumnType("NUMBER(38)");
-
-                entity.HasOne(d => d.Transit)
-                    .WithMany(p => p.Transaction)
-                    .HasForeignKey(d => d.Transitid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("TRANSACTIONTRANSIT_FK");
-            });
-
-            modelBuilder.Entity<Transit>(entity =>
-            {
-                entity.ToTable("TRANSIT");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .HasColumnType("NUMBER(38)")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Entrancestationboothid)
-                    .HasColumnName("ENTRANCESTATIONBOOTHID")
-                    .HasColumnType("NUMBER(38)");
-
-                entity.Property(e => e.Entrancestationid)
-                    .HasColumnName("ENTRANCESTATIONID")
-                    .HasColumnType("NUMBER(38)");
-
-                entity.Property(e => e.Entrancetime)
-                    .HasColumnName("ENTRANCETIME")
-                    .HasColumnType("DATE");
-
-                entity.Property(e => e.Exitstationboothid)
-                    .HasColumnName("EXITSTATIONBOOTHID")
-                    .HasColumnType("NUMBER(38)");
-
-                entity.Property(e => e.Exitstationid)
-                    .HasColumnName("EXITSTATIONID")
-                    .HasColumnType("NUMBER(38)");
-
-                entity.Property(e => e.Exittime)
-                    .HasColumnName("EXITTIME")
-                    .HasColumnType("DATE");
-
-                entity.Property(e => e.Isdeleted)
-                    .HasColumnName("ISDELETED")
-                    .HasColumnType("NUMBER(38)")
-                    .HasDefaultValueSql("0 ");
-
-                entity.Property(e => e.Tagid)
-                    .HasColumnName("TAGID")
-                    .HasColumnType("NUMBER(38)");
-
-                entity.Property(e => e.Ticketid)
-                    .HasColumnName("TICKETID")
-                    .HasColumnType("NUMBER(38)");
-
-                entity.HasOne(d => d.Tag)
-                    .WithMany(p => p.Transit)
-                    .HasForeignKey(d => d.Tagid)
-                    .HasConstraintName("TRANSITTAG_FK");
-
-                entity.HasOne(d => d.Ticket)
-                    .WithMany(p => p.Transit)
-                    .HasForeignKey(d => d.Ticketid)
-                    .HasConstraintName("TRANSITTICKET_FK");
-
-                entity.HasOne(d => d.Entrancestation)
-                    .WithMany(p => p.TransitEntrancestation)
-                    .HasForeignKey(d => new { d.Entrancestationid, d.Entrancestationboothid })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("TRANSITENTRANCE_FK");
-
-                entity.HasOne(d => d.Exitstation)
-                    .WithMany(p => p.TransitExitstation)
-                    .HasForeignKey(d => new { d.Exitstationid, d.Exitstationboothid })
-                    .HasConstraintName("TRANSITEXIT_FK");
             });
 
             modelBuilder.HasSequence("ID_SEQ");
