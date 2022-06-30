@@ -5,7 +5,7 @@ using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.Core.Services
 {
-    public interface IDamageRepositoryService
+    public interface IDamageRepositoryService : IRepositoryService<Damage>
     {
         public Damage FindByDeviceId(int id);
     }
