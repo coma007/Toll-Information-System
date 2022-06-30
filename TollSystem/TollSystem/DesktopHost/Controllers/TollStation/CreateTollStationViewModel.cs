@@ -27,7 +27,7 @@ namespace TollSystem.DesktopHost.Controllers
 
         public CreateTollStationViewModel()
         {
-            Create = new CreateTollStationCommand();
+            Create = new CreateTollStationCommand(this);
             Back = new NavigateCommand(typeof(ShowTollStationViewModel));
 
             GetSections();
