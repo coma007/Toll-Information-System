@@ -56,5 +56,11 @@ namespace TollSystem
             //});
             base.OnStartup(e);
         }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            RepositoryContainer.Context.Dispose();
+            base.OnExit(e);
+        }
     }
 }
