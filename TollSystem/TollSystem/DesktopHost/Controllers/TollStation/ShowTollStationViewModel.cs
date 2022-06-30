@@ -5,7 +5,9 @@ using System.Text;
 using System.Windows.Input;
 using TollSystem.Commands;
 using TollSystem.Core.Entities;
+using TollSystem.Core.Services;
 using TollSystem.DesktopHost.ListItems;
+using TollSystem.Infrastructure.Models;
 
 namespace TollSystem.DesktopHost.Controllers
 {
@@ -38,8 +40,18 @@ namespace TollSystem.DesktopHost.Controllers
             GetAllStations();
         }
 
-        public void GetAllStations() { 
-        
+        public void GetAllStations() 
+        {
+            ITollStationRepositoryService service = ServiceContainer.TollStationRepositoryService;
+            ITollStationModelService modelService = ServiceContainer.TollStationModelService;
+
+            _stations = new ObservableCollection<TollStationListItem>();
+            foreach (Tollstation station in service.GetAll())
+            {
+                TollStationEntity stationEntity = modelService.ModelToEntity(station);
+                _stations.Add(new TollStationListItem(stationEntity));
+            }
+            OnPropertyChanged(nameof(Stations));
         }
     }
 }
