@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using TollSystem.Commands.TollPayment;
 using TollSystem.Core.Entities;
@@ -20,6 +21,11 @@ namespace TollSystem.Commands
 
         public override void Execute(object parameter)
         {
+            if (_referentViewModel.TicketId is null)
+            {
+                MessageBox.Show("Upišite tiket !");
+                return;
+            }
             int id = Int32.Parse(_referentViewModel.TicketId);
             _referentViewModel.LicencePlate = _paymentService.FindLicensePlate(id);
             _referentViewModel.Entrance = _paymentService.FindEntranceStation(id);

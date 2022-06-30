@@ -25,8 +25,10 @@ namespace TollSystem.DesktopHost.Controllers
 
         public ObservableCollection<DamagedDeviceListItem> Devices
         {
-            get => _devices;
-            set => _devices = value;
+            get { return _devices; }
+            set {_devices = value;
+                OnPropertyChanged(nameof(Devices));
+            }
         }
 
         private DamagedDeviceListItem _selectedDevice;
@@ -55,7 +57,7 @@ namespace TollSystem.DesktopHost.Controllers
             GetDevices();
         }
 
-        private void GetDevices()
+        public void GetDevices()
         {
             _devices.Clear();
 
@@ -96,6 +98,8 @@ namespace TollSystem.DesktopHost.Controllers
                     _devices.Add(new DamagedDeviceListItem((int)b.Ordinalnumber, device, damage.Description));
                 }
             }
+
+            OnPropertyChanged(nameof(Devices));
         }
     }
 }
