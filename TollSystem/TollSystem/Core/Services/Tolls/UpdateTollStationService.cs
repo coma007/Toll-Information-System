@@ -19,8 +19,9 @@ namespace TollSystem.Core.Services
 
         public void UpdateTollStation(TollStationEntity tollStation)
         {
-            Tollstation oldTollStationModel = _model.EntityToModel(tollStation);
-            _repositoryModel.Update(oldTollStationModel);
+            Tollstation station = _repositoryModel.FindById(tollStation.Id);
+            station.Name = tollStation.Name;
+            _repositoryModel.Update(station);
             _repositoryModel.Save();
         }
     }

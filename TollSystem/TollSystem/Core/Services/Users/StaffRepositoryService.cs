@@ -25,7 +25,7 @@ namespace TollSystem.Core.Services
         public List<StaffEntity> GetAll()
         {
             List<StaffEntity> staff = new List<StaffEntity>();
-            
+
             foreach (Staff s in _repository.GetAll())
             {
                 staff.Add(_modelService.ModelToEntity(s));
@@ -49,6 +49,11 @@ namespace TollSystem.Core.Services
             }
 
             return _modelService.ModelToEntity(user);
+        }
+
+        public Staff FindMasterByStation(int id)
+        {
+            return _repository.FindMasterByStation(id);
         }
     }
 }

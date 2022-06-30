@@ -33,7 +33,7 @@
                       ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Center"
-                      SelectedIndex="{Binding SelectedStation}">
+                      SelectedItem="{Binding SelectedStation}">
                 <ListView.View>
                     <GridView AllowsColumnReorder="False"
                               ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">

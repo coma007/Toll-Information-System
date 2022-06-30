@@ -34,5 +34,10 @@ namespace TollSystem.Core.Entities
             Salary = (double)staff.Salary;
             Credentials = new Credentials(staff.Username, staff.Password);
         }
+
+        public override string ToString()
+        {
+            return FirstName + " " + LastName;
+        }
     }
 }

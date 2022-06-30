@@ -28,5 +28,12 @@ namespace TollSystem.Infrastructure.Repositories
 
             return null;
         }
+
+        public Staff FindMasterByStation(int id)
+        {
+            List<Staff> staffs = _table.Where(s => s.Stationid == id).ToList();
+            if (staffs.Count > 0) return staffs[0];
+            else return null;
+        }
     }
 }

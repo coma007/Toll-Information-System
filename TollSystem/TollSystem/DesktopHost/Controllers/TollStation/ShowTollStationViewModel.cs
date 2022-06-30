@@ -33,23 +33,35 @@ namespace TollSystem.DesktopHost.Controllers
         public ShowTollStationViewModel()
         {
             Create = new NavigateCommand(typeof(CreateTollStationViewModel));
-            Update = new NavigateCommand(typeof(UpdateTollStationViewModel));
-            Delete = new DeleteTollStationCommand();
+
+            Update = new ShowUpdateCommand(this);
+            Delete = new DeleteTollStationCommand(this);
             Back = new NavigateCommand(typeof(AdminViewModel));
 
             GetAllStations();
         }
 
-        public void GetAllStations() 
+        public void GetAllStations()
         {
             ITollStationRepositoryService service = ServiceContainer.TollStationRepositoryService;
             ITollStationModelService modelService = ServiceContainer.TollStationModelService;
+            ITollBoothRepositoryService boothService = ServiceContainer.TollBoothRepositoryService;
+            IStaffModelService staffModel = ServiceContainer.StaffModelService;
 
             _stations = new ObservableCollection<TollStationListItem>();
             foreach (Tollstation station in service.GetAll())
             {
+                List<Tollbooth> entities = boothService.FindByStationId((int)station.Id);
                 TollStationEntity stationEntity = modelService.ModelToEntity(station);
-                _stations.Add(new TollStationListItem(stationEntity));
+                TollStationListItem listItem = new TollStationListItem(stationEntity);
+                listItem.BoothsNumber = entities.Count;
+                Staff staff = ServiceContainer.StaffRepositoryService.FindMasterByStation((int)station.Id);
+                if (staff != null)
+                {
+                    StaffEntity entity = staffModel.ModelToEntity(staff);
+                    listItem.StationMaster = entity;
+                }
+                _stations.Add(listItem);
             }
             OnPropertyChanged(nameof(Stations));
         }
