@@ -31,8 +31,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Label Grid.Row="1"
-                   Content="Datum početka: "
-                   Margin="345 0 0 0"
+                   Content="Datum početka (dd.mm.yyyy.): "
+                   Margin="325 0 0 0"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top" />
             <TextBox Grid.Row="1"
@@ -43,7 +43,7 @@
 
             <Label Grid.Row="1"
                    Grid.Column="1"
-                   Content="Datum završetka: "
+                   Content="Datum završetka (dd.mm.yyyy.): "
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top" />
             <TextBox Grid.Row="1"
@@ -79,9 +79,9 @@
                                         Header="Naziv stanice">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock TextAlignment="Left"
+                                    <TextBlock TextAlignment="Center"
                                                Text="{Binding TollStationName}"
-                                               Width="300" />
+                                               Width="400" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -89,9 +89,9 @@
                                         Header="Prihod u dinarima">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBox TextAlignment="Center"
+                                    <TextBlock TextAlignment="Center"
                                                Text="{Binding RSDIncome}"
-                                             Width="300" />
+                                             Width="400" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -99,9 +99,9 @@
                                         Header="Prihod u evrima">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBox TextAlignment="Center"
+                                    <TextBlock TextAlignment="Center"
                                                Text="{Binding EURIncome}"
-                                             Width="300" />
+                                             Width="400" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>

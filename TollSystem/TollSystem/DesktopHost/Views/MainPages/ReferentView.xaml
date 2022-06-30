@@ -38,7 +38,7 @@
                    HorizontalAlignment="Center" />
             <Label Grid.Row="1"
                    Content="ID tiketa: "
-                   Margin="185 0 0 0"
+                   Margin="175 0 0 0"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top" />
             <TextBox Grid.Row="1"
@@ -49,7 +49,7 @@
 
             <Label Grid.Row="2"
                    Content="Kategorija vozila: "
-                   Margin="185 0 0 0"
+                   Margin="175 0 0 0"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top" />
             <ComboBox Grid.Row="2"
@@ -61,7 +61,7 @@
 
             <Label Grid.Row="3"
                    Content="Ulazna stanica: "
-                   Margin="185 0 0 0"
+                   Margin="175 0 0 0"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top" />
             <TextBox Grid.Row="3"
@@ -74,7 +74,7 @@
 
             <Label Grid.Row="4"
                    Content="Vrijeme ulaza: "
-                   Margin="185 0 0 0"
+                   Margin="175 0 0 0"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top" />
             <TextBox Grid.Row="4"
@@ -86,7 +86,7 @@
 
             <Label Grid.Row="5"
                    Content="Valuta: "
-                   Margin="185 0 0 0"
+                   Margin="175 0 0 0"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top" />
             <ComboBox Grid.Row="5"
@@ -99,7 +99,7 @@
 
             <Label Grid.Row="6"
                    Content="Uplaćeno: "
-                   Margin="185 0 0 0"
+                   Margin="175 0 0 0"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top" />
             <TextBox Grid.Row="6"
@@ -269,7 +269,7 @@
                     Command="{Binding RaiseRamp}"
                     IsEnabled="{Binding IsRampEnabled}"
                     Height="40"
-                    Width="100"
+                    Width="120"
                     Margin="0 -30 60 0"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Center" />

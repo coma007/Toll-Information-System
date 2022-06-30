@@ -41,7 +41,7 @@
                                         Header="Naziv stanice">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock TextAlignment="Left"
+                                    <TextBlock TextAlignment="Center"
                                                Text="{Binding Name}"
                                                Width="400" />
                                 </DataTemplate>

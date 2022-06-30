@@ -28,8 +28,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Label Grid.Row="1"
-                   Content="Datum od (oblik dd.mm.yyyy.): "
-                   Margin="345 0 0 0"
+                   Content="Datum od (dd.mm.yyyy.): "
+                   Margin="325 0 0 0"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top" />
             <TextBox Grid.Row="1"
@@ -40,7 +40,7 @@
 
             <Label Grid.Row="1"
                    Grid.Column="1"
-                   Content="Datum do (oblik dd.mm.yyyy.): "
+                   Content="Datum do (dd.mm.yyyy.): "
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top" />
             <TextBox Grid.Row="1"
