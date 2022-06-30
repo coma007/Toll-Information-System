@@ -34,9 +34,6 @@
             <DataTemplate DataType="{x:Type viewmodels:PricelistViewModel}">
                 <views:PricelistView />
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:IncomeAtAllStationsViewModel}">
-                <views:IncomeAtAllStations />
-            </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:ShowTollStationViewModel}">
                 <views:TollStationView />
             </DataTemplate>
