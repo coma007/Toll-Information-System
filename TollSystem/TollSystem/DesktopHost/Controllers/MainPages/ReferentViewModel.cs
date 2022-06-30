@@ -113,7 +113,12 @@ namespace TollSystem.DesktopHost.Controllers
         public double Paid
         {
             get { return _paid; }
-            set { _paid = value; OnPropertyChanged(nameof(Paid)); }
+            set 
+            { 
+                _paid = value;
+                OnPropertyChanged(nameof(Paid));
+                OnPropertyChanged(nameof(IsPaymentEnabled));
+            }
         }
         private double _change;
 
@@ -155,7 +160,7 @@ namespace TollSystem.DesktopHost.Controllers
         public bool IsPaymentEnabled
         {
             set { _isPayementEnabled = value; OnPropertyChanged(nameof(IsPaymentEnabled)); }
-            get { return _isPayementEnabled; }
+            get { return _isPayementEnabled && _paid > _price; }
         }
 
         public ReferentViewModel()
@@ -171,7 +176,6 @@ namespace TollSystem.DesktopHost.Controllers
 
             FillCategoryList();
             FillCurrencyList();
-
         }
 
         private void FillCategoryList()
@@ -202,7 +206,9 @@ namespace TollSystem.DesktopHost.Controllers
             SelectedCategory = _categories[0];
             LicencePlate = null;
             Entrance = null;
+            EntranceString = "";
             Exit = null;
+            ExitString = "";
             EntranceTime = null;
             ExitTime = null;
             SelectedCurrency = _currencies[0];
