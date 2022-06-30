@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 using TollSystem.Commands;
 using TollSystem.Commands.TollStationCreation;
 using TollSystem.Core.Entities;
@@ -20,12 +21,19 @@ namespace TollSystem.Commands
         }
         public override void Execute(object parameter)
         {
-            Dictionary<int, List<double>> sections = new Dictionary<int, List<double>>();
-            foreach (SectionListItem s in _model.Sections)
+            if (_model.Name == null || _model.Name.Trim().Equals(""))
             {
-                sections.Add(s.Station.Id, new List<double>() { s.Length, s.PriceRSD, s.PriceEUR });
+                MessageBox.Show("Niste uneli ime stanice.");
             }
-            _creator.CreateStation(_model.Name, _model.BoothsNumber, sections);
+            else
+            {
+                Dictionary<int, List<double>> sections = new Dictionary<int, List<double>>();
+                foreach (SectionListItem s in _model.Sections)
+                {
+                    sections.Add(s.Station.Id, new List<double>() { s.Length, s.PriceRSD, s.PriceEUR });
+                }
+                _creator.CreateStation(_model.Name, _model.BoothsNumber, sections);
+            }
         }
     }
 }
