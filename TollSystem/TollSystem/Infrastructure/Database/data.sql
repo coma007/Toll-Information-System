@@ -496,6 +496,40 @@ INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (7, 2, 'SCANN
 
 INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (8, 1, 'SCANNER');
 INSERT INTO Device (stationId, tollBoothNumber, deviceType) values (8, 2, 'SCANNER');
+
+insert into scanner (id, scannerType) values (39, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (40, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (41, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (42, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (43, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (44, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (45, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (46, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (47, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (48, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (115, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (116, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (219, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (220, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (221, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (222, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (223, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (224, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (225, 'LICENCE_PLATE');
+insert into scanner (id, scannerType) values (226, 'TAG');
+insert into scanner (id, scannerType) values (227, 'TAG');
+insert into scanner (id, scannerType) values (228, 'TAG');
+insert into scanner (id, scannerType) values (229, 'TAG');
+insert into scanner (id, scannerType) values (230, 'TAG');
+insert into scanner (id, scannerType) values (231, 'TAG');
+insert into scanner (id, scannerType) values (232, 'TAG');
+insert into scanner (id, scannerType) values (233, 'TAG');
+insert into scanner (id, scannerType) values (234, 'TAG');
+insert into scanner (id, scannerType) values (235, 'TAG');
+insert into scanner (id, scannerType) values (236, 'TAG');
+insert into scanner (id, scannerType) values (237, 'TAG');
+insert into scanner (id, scannerType) values (238, 'TAG');
+insert into scanner (id, scannerType) values (239, 'TAG');
 commit;
 
 select * from device;
