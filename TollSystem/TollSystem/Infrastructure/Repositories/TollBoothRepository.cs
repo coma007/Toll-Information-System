@@ -20,5 +20,6 @@ namespace TollSystem.Infrastructure.Repositories
         {
             return _table.Where(t => t.Stationid == id && t.Ordinalnumber == ordinalNumber).ToList()[0];
         }
+
     }
 }

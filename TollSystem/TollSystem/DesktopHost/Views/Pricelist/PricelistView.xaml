@@ -41,7 +41,7 @@
                                         Header="Cijena za">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock TextAlignment="Left"
+                                    <TextBlock TextAlignment="Center"
                                                Text="{Binding PriceFor}"
                                                Width="300" />
                                 </DataTemplate>
@@ -51,7 +51,7 @@
                                         Header="Kategorija">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock TextAlignment="Left"
+                                    <TextBlock TextAlignment="Center"
                                                Text="{Binding Category}"
                                                Width="300" />
                                 </DataTemplate>
