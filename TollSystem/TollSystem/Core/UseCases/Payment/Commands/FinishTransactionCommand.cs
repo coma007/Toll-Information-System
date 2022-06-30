@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using TollSystem.Commands.TollPayment;
 using TollSystem.Core.Entities;
@@ -19,6 +20,11 @@ namespace TollSystem.Commands
 
         public override void Execute(object parameter)
         {
+            if (_referentViewModel.Paid <= _referentViewModel.Price)
+            {
+                MessageBox.Show("Unesite validan iznos uplate !");
+                return;
+            }
             double price = _referentViewModel.Price;
             double paid = _referentViewModel.Paid;
             _referentViewModel.Change = _paymentService.GetChange(price, paid);

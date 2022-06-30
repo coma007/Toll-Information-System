@@ -51,6 +51,8 @@ namespace TollSystem.DesktopHost.Controllers
             {
                 DeviceForBooth.Add(d);
             }
+
+            SelectedDevice = Devices[0];
         }
     }
 }

@@ -160,7 +160,7 @@ namespace TollSystem.DesktopHost.Controllers
         public bool IsPaymentEnabled
         {
             set { _isPayementEnabled = value; OnPropertyChanged(nameof(IsPaymentEnabled)); }
-            get { return _isPayementEnabled && _paid > _price; }
+            get { return _isPayementEnabled; }
         }
 
 
