@@ -14,14 +14,13 @@ using System.Windows.Shapes;
 namespace TollSystem.DesktopHost.Views
 {
     /// <summary>
-    /// Interaction logic for CreateTollStation.xaml
+    /// Interaction logic for UpdateTollStation.xaml
     /// </summary>
-    public partial class CreateTollStationView : UserControl
+    public partial class UpdateTollStationView : UserControl
     {
-        public CreateTollStationView()
+        public UpdateTollStationView()
         {
             InitializeComponent();
         }
-
     }
 }

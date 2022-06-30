@@ -23,7 +23,7 @@
                    VerticalAlignment="Bottom"
                    FontSize="24"
                    Margin="0,20,0,20"></TextBlock>
-        <Label Grid.Row="1" Content="Username: "
+        <Label Grid.Row="1" Content="Korisničko ime: "
                HorizontalAlignment="Center" />
         <TextBox Grid.Row="1"
                  HorizontalAlignment="Center"
@@ -31,7 +31,7 @@
                  Width="300"
                  Height="30" />
         <Label Grid.Row="2"
-               Content="Password: "
+               Content="Lozinka: "
                HorizontalAlignment="Center"></Label>
         <TextBox Grid.Row="2"
                  HorizontalAlignment="Center"
@@ -43,7 +43,7 @@
                 VerticalAlignment="Top"
                 Width="100"
                 Height="30"
-                Content="Login"
+                Content="Prijavi se"
                 Command="{Binding LoginCommand}">
             
         </Button>

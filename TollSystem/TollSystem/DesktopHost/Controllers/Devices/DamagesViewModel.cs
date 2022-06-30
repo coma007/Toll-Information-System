@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TollSystem.DesktopHost.Controllers
 {
-    public class TollStationViewModel : BaseViewModel
+    class DamagesViewModel
     {
     }
 }
