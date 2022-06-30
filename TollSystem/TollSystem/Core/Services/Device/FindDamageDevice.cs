@@ -20,13 +20,12 @@ namespace TollSystem.Core.Services
             _scannerService = scannerService;
         }
 
-        // TODO treba popraviti da se ne prosledjuju stanica, nego uzeti current
-        public Dictionary<int, Dictionary<DeviceEntity, string>> FindTollBothWithDamageDevices(TollStationEntity station)
+        public Dictionary<int, Dictionary<DeviceEntity, string>> FindTollBothWithDamageDevices()
         {
             Dictionary<DeviceEntity, string> damages = new Dictionary<DeviceEntity, string>();
             Dictionary<int, Dictionary<DeviceEntity, string>> allDamageDevices = new Dictionary<int, Dictionary<DeviceEntity, string>>();
        
-            foreach (TollBoothEntity tollBooth in station.TollBooths)
+            foreach (TollBoothEntity tollBooth in SystemCurrentData.CurrentStation.TollBooths)
             {
                 if (tollBooth.RecieptPrinter.IsDamaged)
                 {
@@ -85,40 +84,38 @@ namespace TollSystem.Core.Services
             //}
         }
 
-
-        // TODO treba popraviti da se ne prosledjuju stanica i mesto, nego uzeti current
-        public void ReportDamage(string type, string description, TollBoothEntity tollBooth, Tollstation tollstation)
+        public void ReportDamage(string type, string description)
         {
             Device device = new Device();
             Damage damage = new Damage();
 
             if (type.Equals("PRINTER"))
             {
-                PrinterEntity printer = tollBooth.TicketPrinter;
+                PrinterEntity printer = SystemCurrentData.CurrentTollBooth.TicketPrinter;
                 device = _deviceService.GetById(printer.Id);
                 damage.Deviceid = printer.Id;    
             }
             else if (type.Equals("RAMP"))
             {
-                RampEntity ramp = tollBooth.Ramp;
+                RampEntity ramp = SystemCurrentData.CurrentTollBooth.Ramp;
                 device = _deviceService.GetById(ramp.Id);
                 damage.Deviceid = ramp.Id;
             }
             else if (type.Equals("SEMAPHORE"))
             {
-                SemaphoreEntity semaphore = tollBooth.Semaphore;
+                SemaphoreEntity semaphore = SystemCurrentData.CurrentTollBooth.Semaphore;
                 device = _deviceService.GetById(semaphore.Id);
                 damage.Deviceid = semaphore.Id;
             }
             else if (type.Equals("SCANNER_LICENCE_PLATE"))
             {
-                ScannerEntity scanner = tollBooth.LicensePlateScanner;
+                ScannerEntity scanner = SystemCurrentData.CurrentTollBooth.LicensePlateScanner;
                 device = _deviceService.GetById(scanner.Id);
                 damage.Deviceid = scanner.Id;
             }
             else if (type.Equals("SCANNER_TAG"))
             {
-                ScannerEntity scanner = tollBooth.TagScanner;
+                ScannerEntity scanner = SystemCurrentData.CurrentTollBooth.TagScanner;
                 device = _deviceService.GetById(scanner.Id);
                 damage.Deviceid = scanner.Id;
             }
