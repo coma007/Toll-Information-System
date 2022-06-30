@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TollSystem.Core.Entities;
-using TollSystem.Infrastructure.Models;
 
-namespace TollSystem.Core.Services
+namespace TollSystem.Core.Services.PoliceReport
 {
-    public interface IPoliceReportModelService
+    class IPoliceReportModelService
     {
-
-        public Policereport EntityToModel(PoliceReportEntity policeReport);
     }
 }

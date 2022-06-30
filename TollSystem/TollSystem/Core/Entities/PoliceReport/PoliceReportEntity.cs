@@ -7,7 +7,7 @@ namespace TollSystem.Core.Entities
     public class PoliceReportEntity
     {
         public int Id { get; set; }
-        public DateTime ReportDate { get; set; }
+        public DateTime Date { get; set; }
         public string LicensePlate { get; set; }
         public double Speed { get; set; }
 
@@ -19,7 +19,7 @@ namespace TollSystem.Core.Entities
         public PoliceReportEntity(int id, DateTime date, string licensePlate, double spped)
         {
             Id = id;
-            ReportDate = date;
+            Date = date;
             LicensePlate = licensePlate;
             Speed = Speed;
         }
