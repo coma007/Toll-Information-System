@@ -16,9 +16,9 @@ namespace TollSystem.DesktopHost.Views
     /// <summary>
     /// Interaction logic for IncomeAtStation.xaml
     /// </summary>
-    public partial class IncomeAtStation : UserControl
+    public partial class IncomeAtStationView : UserControl
     {
-        public IncomeAtStation()
+        public IncomeAtStationView()
         {
             InitializeComponent();
         }

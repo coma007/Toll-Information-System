@@ -40,7 +40,14 @@
             <DataTemplate DataType="{x:Type viewmodels:UpdateTollStationViewModel}">
                 <views:UpdateTollStationView />
             </DataTemplate>
-            
+
+            <DataTemplate DataType="{x:Type viewmodels:IncomeAtAllStationsViewModel}">
+                <views:IncomeAtAllStationsView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:IncomeAtStationViewModel}">
+                <views:IncomeAtStationView />
+            </DataTemplate>
+
         </Grid.Resources>
         <Button Height="40"
                 Width="100"

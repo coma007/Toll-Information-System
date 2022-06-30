@@ -26,7 +26,7 @@ namespace TollSystem
         }
         protected override void OnStartup(StartupEventArgs e)
         {
-            _navigation.CurrentViewModel = new LoginViewModel();
+            _navigation.CurrentViewModel = new IncomeAtStationViewModel();
             MainWindow = new MainWindow()
             {
                 DataContext = new MainViewModel(_navigation)

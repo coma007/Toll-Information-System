@@ -34,7 +34,7 @@ namespace TollSystem.DesktopHost.Controllers
         {
             Create = new NavigateCommand(typeof(CreateTollStationViewModel));
             Update = new NavigateCommand(typeof(UpdateTollStationViewModel));
-            Delete = new DeleteTollStationCommand();
+            Delete = new DeleteTollStationCommand(this);
             Back = new NavigateCommand(typeof(AdminViewModel));
 
             GetAllStations();
