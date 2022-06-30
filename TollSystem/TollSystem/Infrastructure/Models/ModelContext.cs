@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace TollSystem.Infrastructure.Models
 {
@@ -15,6 +17,7 @@ namespace TollSystem.Infrastructure.Models
 
         public virtual DbSet<Damage> Damage { get; set; }
         public virtual DbSet<Device> Device { get; set; }
+        public virtual DbSet<Policereport> Policereport { get; set; }
         public virtual DbSet<Price> Price { get; set; }
         public virtual DbSet<Pricelist> Pricelist { get; set; }
         public virtual DbSet<Salesplace> Salesplace { get; set; }
@@ -109,6 +112,30 @@ namespace TollSystem.Infrastructure.Models
                     .HasForeignKey(d => new { d.Stationid, d.Tollboothnumber })
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("DEVICE_FK");
+            });
+
+            modelBuilder.Entity<Policereport>(entity =>
+            {
+                entity.ToTable("POLICEREPORT");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("NUMBER(38)")
+                    .ValueGeneratedOnAdd();
+
+                entity.Property(e => e.Licenseplate)
+                    .IsRequired()
+                    .HasColumnName("LICENSEPLATE")
+                    .HasMaxLength(15)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Reportdate)
+                    .HasColumnName("REPORTDATE")
+                    .HasColumnType("DATE");
+
+                entity.Property(e => e.Speed)
+                    .HasColumnName("SPEED")
+                    .HasColumnType("NUMBER(4,1)");
             });
 
             modelBuilder.Entity<Price>(entity =>
@@ -243,7 +270,7 @@ namespace TollSystem.Infrastructure.Models
                 entity.Property(e => e.Scannertype)
                     .IsRequired()
                     .HasColumnName("SCANNERTYPE")
-                    .HasMaxLength(10)
+                    .HasMaxLength(15)
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.IdNavigation)

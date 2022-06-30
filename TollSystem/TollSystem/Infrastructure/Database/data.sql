@@ -538,4 +538,4 @@ insert into policeReport (licensePlate, reportDate, speed) values ('BG226KL', to
 
 commit;
 
-select * from staff;
+select * from transit;
