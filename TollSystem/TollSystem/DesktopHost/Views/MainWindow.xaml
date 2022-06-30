@@ -31,6 +31,9 @@
                 <views:ReferentView />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewmodels:PricelistViewModel}">
+                <views:PricelistView />
+            </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:ShowTollStationViewModel}">
                 <views:TollStationView />
             </DataTemplate>
