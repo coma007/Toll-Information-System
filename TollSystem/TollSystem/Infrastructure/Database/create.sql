@@ -44,7 +44,7 @@ create table DEVICE (
 
 create table SCANNER (
     id integer NOT NULL,
-    scannerType varchar(10) not null,
+    scannerType varchar(15) not null,
     isDeleted integer DEFAULT 0 NOT NULL,
     CONSTRAINT scanner_pk PRIMARY KEY(id),
     CONSTRAINT scanner_fk FOREIGN KEY (id) REFERENCES DEVICE(id),

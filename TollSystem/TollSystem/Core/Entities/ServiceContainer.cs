@@ -80,6 +80,6 @@ namespace TollSystem.Core.Entities
         public static ITollStationCreationService TollStationCreationService => new TollStationCreationService(
             RepositoryContainer.TollStationRepository, RepositoryContainer.TollBoothRepository,
             RepositoryContainer.DeviceRepository, RepositoryContainer.SectionRepository,
-            RepositoryContainer.PricelistRepository, RepositoryContainer.PriceRepository);
+            RepositoryContainer.PricelistRepository, RepositoryContainer.PriceRepository, RepositoryContainer.ScannerRepository);
     }
 }

@@ -9,12 +9,13 @@ namespace TollSystem.Commands.TollStationCreation
     {
         private Repository<Tollstation> _stations;
         private IRepository<Tollbooth> _booths;
-        private IRepository<Device> _devices;
+        private IRepository<Scanner> _scanner;
+        private Repository<Device> _devices;
         private Repository<Section> _sections;
         private IPricelistRepository _pricelist;
         private IPriceRepository _prices;
 
-        public TollStationCreationService(Repository<Tollstation> stations, IRepository<Tollbooth> booths, IRepository<Device> devices, Repository<Section> sections, IPricelistRepository pricelist, IPriceRepository prices)
+        public TollStationCreationService(Repository<Tollstation> stations, IRepository<Tollbooth> booths, Repository<Device> devices, Repository<Section> sections, IPricelistRepository pricelist, IPriceRepository prices, IRepository<Scanner> scanner)
         {
             _stations = stations;
             _booths = booths;
@@ -22,6 +23,7 @@ namespace TollSystem.Commands.TollStationCreation
             _sections = sections;
             _pricelist = pricelist;
             _prices = prices;
+            _scanner = scanner;
         }
 
         // prva vrednost duzina, druga cena u dinarima, treca cena u eurima
@@ -133,9 +135,54 @@ namespace TollSystem.Commands.TollStationCreation
                 Tollboothnumber = ordinalnumber,
                 Devicetype = "RAMP"
             });
+
+            _devices.Add(new Device()
+            {
+                Stationid = stationid,
+                Tollboothnumber = ordinalnumber,
+                Devicetype = "SEMAPHORE"
+            });
+
+            _devices.Add(new Device()
+            {
+                Stationid = stationid,
+                Tollboothnumber = ordinalnumber,
+                Devicetype = "PRINTER"
+            });
+
+            _devices.Add(new Device()
+            {
+                Stationid = stationid,
+                Tollboothnumber = ordinalnumber,
+                Devicetype = "SCANNER"
+            });
+            _devices.Save();
+
+            decimal scannerId = _devices.Table.Max(d => d.Id);
+            _scanner.Add(new Scanner()
+            {
+                Id = scannerId,
+                Scannertype = "LICENCE_PLATE"
+            });
+
+            _devices.Add(new Device()
+            {
+                Stationid = stationid,
+                Tollboothnumber = ordinalnumber,
+                Devicetype = "SCANNER"
+            });
+            _devices.Save();
+
+            scannerId = _devices.Table.Max(d => d.Id);
+            _scanner.Add(new Scanner()
+            {
+                Id = scannerId,
+                Scannertype = "TAG"
+            });
             //napravi sve uredjaje
 
             _devices.Save();
+            _scanner.Save();
         }
     }
 }

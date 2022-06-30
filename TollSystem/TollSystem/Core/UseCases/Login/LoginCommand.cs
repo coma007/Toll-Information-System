@@ -38,13 +38,20 @@ namespace TollSystem.Commands
                         ServiceContainer.TollBoothModelService.ModelToEntity(t,
                             ServiceContainer.DeviceRepositoryService);
                     SystemCurrentData.CurrentTollBooth.TollStation = SystemCurrentData.CurrentStation;
+                    NavigationStore.Instance().CurrentViewModel = new ReferentViewModel();
                 } else if (user is StationMasterEntity)
                 {
-                    SystemCurrentData.CurrentStation = ((ReferentEntity)user).TollStation;
+                    SystemCurrentData.CurrentStation = ((StationMasterEntity)user).TollStation;
+                    NavigationStore.Instance().CurrentViewModel = new StationMasterViewModel();
+                } else if (user is ManagerEntity)
+                {
+                    NavigationStore.Instance().CurrentViewModel = new ManagerViewModel();
                 }
-                Console.WriteLine("Ulogovan");
+                else
+                {
+                    NavigationStore.Instance().CurrentViewModel = new AdminViewModel();
+                }
             }
-            NavigationStore.Instance().CurrentViewModel = new ReferentViewModel();
         }
     }
 }

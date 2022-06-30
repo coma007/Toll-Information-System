@@ -41,8 +41,13 @@ namespace TollSystem.Core.Services
             {
                 return null;
             }
-            Tollstation station = _stations.FindById((int)user.Stationid);
-            user.Station = station;
+
+            if (user.Role.Equals("REFERENT") || user.Role.Equals("STATIONMASTER"))
+            {
+                Tollstation station = _stations.FindById((int)user.Stationid);
+                user.Station = station;
+            }
+
             return _modelService.ModelToEntity(user);
         }
     }

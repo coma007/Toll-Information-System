@@ -13,7 +13,7 @@ namespace TollSystem.Core.Entities
 
         public static ITollBoothRepository TollBoothRepository => new TollBoothRepository(Context);
 
-        public static IDeviceRepository DeviceRepository => new DeviceRepository(Context);
+        public static DeviceRepository DeviceRepository => new DeviceRepository(Context);
 
         public static Repository<Scanner> ScannerRepository => new Repository<Scanner>(Context, Context.Scanner);
 
