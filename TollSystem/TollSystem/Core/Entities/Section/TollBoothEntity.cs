@@ -11,7 +11,7 @@ namespace TollSystem.Core.Entities
         public TollStationEntity TollStation { get; set; }
         public PrinterEntity RecieptPrinter { get; set; }
         public PrinterEntity TicketPrinter { get; set; }
-        public SemaphoreEntity Semahore { get; set; }
+        public SemaphoreEntity Semaphore { get; set; }
         public RampEntity Ramp { get; set;}
         public ScannerEntity TagScanner { get; set;} 
         public ScannerEntity LicensePlateScanner { get; set; }
@@ -27,7 +27,7 @@ namespace TollSystem.Core.Entities
             OrdinalNumber = ordinalNumber;
             TollStation = tollStation;
             RecieptPrinter = recieptPrinter;
-            Semahore = semaphore;
+            Semaphore = semaphore;
             Ramp = ramp;
             TagScanner = tagScanner;
             LicensePlateScanner = licensePlateScanner;
@@ -42,7 +42,7 @@ namespace TollSystem.Core.Entities
             TollStation = station;
             RecieptPrinter = recieptPrinter;
             TicketPrinter = ticketPrinter;
-            Semahore = semaphore;
+            Semaphore = semaphore;
             Ramp = ramp;
             TagScanner = tagScanner;
             LicensePlateScanner = licensePlateScanner;
