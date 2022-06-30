@@ -37,6 +37,10 @@ namespace TollSystem.Commands
             if (_referentViewModel.SelectedCurrency == Currency.RSD)
             _referentViewModel.Price = _paymentService.GetPrice(id, _referentViewModel.SelectedCategory);
             else _referentViewModel.Price = _paymentService.GetPrice(id, _referentViewModel.SelectedCategory, Currency.EUR);
+            if (! _paymentService.CheckSpeed(id, _referentViewModel.LicencePlate))
+            {
+                MessageBox.Show("Poslata prijava policiji!");
+            }
             _referentViewModel.IsPaymentEnabled = true;
         }
     }
