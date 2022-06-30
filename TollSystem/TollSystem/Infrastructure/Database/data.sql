@@ -530,6 +530,13 @@ insert into scanner (id, scannerType) values (236, 'TAG');
 insert into scanner (id, scannerType) values (237, 'TAG');
 insert into scanner (id, scannerType) values (238, 'TAG');
 insert into scanner (id, scannerType) values (239, 'TAG');
+
+insert into policeReport (licensePlate, reportDate, speed) values ('NS143WE', to_date('17-06-22', 'DD-MM-YYYY'), 130.5);
+insert into policeReport (licensePlate, reportDate, speed) values ('NS123AF', to_date('18-08-21', 'DD-MM-YYYY'), 140);
+insert into policeReport (licensePlate, reportDate, speed) values ('ZR444TT', to_date('30-06-22', 'DD-MM-YYYY'), 150);
+insert into policeReport (licensePlate, reportDate, speed) values ('BP233HJ', to_date('22-12-21', 'DD-MM-YYYY'), 160);  
+insert into policeReport (licensePlate, reportDate, speed) values ('BG226KL', to_date('31-01-22', 'DD-MM-YYYY'), 144.5);
+
 commit;
 
-select * from device;
+select * from staff;

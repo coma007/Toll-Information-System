@@ -22,13 +22,27 @@ namespace TollSystem.DesktopHost.Controllers
 
         private ObservableCollection<DamagedDeviceListItem> _devices;
 
+
         public ObservableCollection<DamagedDeviceListItem> Devices
         {
             get => _devices;
             set => _devices = value;
         }
 
+        private DamagedDeviceListItem _selectedDevice;
+
+        public DamagedDeviceListItem SelectedDevice
+        {
+            get => _selectedDevice;
+            set
+            {
+                if (value is null) {return;}
+                _selectedDevice = value;
+            }
+        }
+
         public ICommand Back { get; set; }
+        public ICommand Repair { get; set; }
 
         public DamagesViewModel()
         {
@@ -36,6 +50,8 @@ namespace TollSystem.DesktopHost.Controllers
             _devices = new ObservableCollection<DamagedDeviceListItem>();
 
             Back = new NavigateCommand(typeof(StationMasterViewModel));
+            Repair = new RepairDeviceCommand(this);
+
             GetDevices();
         }
 

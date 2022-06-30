@@ -30,7 +30,7 @@
             <Button Grid.Row="7"
                     Grid.ColumnSpan="2"
                     Content="Popravi kvar"
-                    Command="{Binding Create}"
+                    Command="{Binding Repair}"
                     Margin="0 -30 0 0"
                     Height="40"
                     Width="100"
@@ -46,7 +46,7 @@
                       ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                       VerticalAlignment="Top"
                       HorizontalAlignment="Center"
-                      SelectedItem="SelectedDamage">
+                      SelectedItem="{Binding SelectedDevice}">
                 <ListView.View>
                     <GridView AllowsColumnReorder="False"
                               ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
