@@ -9,5 +9,7 @@ namespace TollSystem.Infrastructure.Repositories
         public List<Staff> FindByStationId(int id);
 
         public Staff FindByCredentials(string username, string password);
+
+        public Staff FindMasterByStation(int id);
     }
 }

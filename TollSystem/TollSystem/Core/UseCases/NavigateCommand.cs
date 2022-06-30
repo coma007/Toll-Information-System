@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using TollSystem.Commands;
+using TollSystem.Core.Entities;
 using TollSystem.DesktopHost;
 using TollSystem.DesktopHost.Controllers;
 
@@ -14,7 +15,6 @@ namespace TollSystem.Commands
         {
             _type = type;
         }
-
         public override void Execute(object parameter)
         {
             NavigationStore.Instance().CurrentViewModel = (BaseViewModel)Activator.CreateInstance(_type);
