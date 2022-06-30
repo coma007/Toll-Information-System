@@ -4,13 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TollSystem.DesktopHost.Views"
+             xmlns:viewmodels="clr-namespace:TollSystem.DesktopHost.Controllers"
+             d:DataContext="{d:DesignInstance Type=viewmodels:DamagesViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" d:Background="White">
     <Grid>
         <Label Grid.Row="0"
                Margin="30 50 0 0"
                Grid.ColumnSpan="2"
-               Content="Kreiranje stanice"
+               Content="Prijavi kvar na uređaju"
                FontSize="30"
                HorizontalAlignment="Center" />
         <Grid Grid.Column="0"
@@ -18,35 +20,32 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="5*" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.5*" />
-                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Label Grid.Row="1"
-                   Content="Naziv stanice: "
-                   Margin="345 0 0 0"
-                   HorizontalAlignment="Left"
+                   Content="Vrsta uređaja: "
+                   HorizontalAlignment="Center"
                    VerticalAlignment="Top" />
-            <TextBox Grid.Row="1"
-                     Text="{Binding Name}"
-                     HorizontalAlignment="Center"
-                     Width="265"
-                     Height="30" />
+            <ComboBox Grid.Row="1"
+                      HorizontalAlignment="Center"
+                      Width="265"
+                      Height="30"
+                      ItemsSource="{Binding Devices}"
+                      SelectedItem="{Binding SelectedDevice}" />
 
-            <Label Grid.Row="1"
-                   Grid.Column="1"
-                   Content="Broj naplatnih mjesta: "
-                   HorizontalAlignment="Left"
+            <Label Grid.Row="2"
+                   Content="Opis kvara: "
+                   HorizontalAlignment="Center"
                    VerticalAlignment="Top" />
-            <TextBox Grid.Row="1"
-                     Grid.Column="1"
-                     Text="{Binding BoothsNumber}"
-                     HorizontalAlignment="Left"
+            <TextBox Grid.Row="2"
+                     Text="{Binding Description}"
+                     HorizontalAlignment="Center"
+                     TextWrapping="Wrap"
                      Width="265"
-                     Height="30" />
+                     Height="80" />
 
             <Button Grid.Row="7"
                     Grid.ColumnSpan="2"
@@ -56,64 +55,6 @@
                     Height="40"
                     Width="100"
                     HorizontalAlignment="Center" />
-            <ListView ItemsSource="{Binding Sections}"
-                      Grid.Column="0"
-                      Grid.ColumnSpan="2"
-                      Grid.Row="2"
-                      Width="1200"
-                      Height="450"
-                      Background="#b9b9b9"
-                      SelectionMode="Single"
-                      ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                      VerticalAlignment="Top"
-                      HorizontalAlignment="Center">
-                <ListView.View>
-                    <GridView AllowsColumnReorder="False"
-                              ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
-                        <GridViewColumn Width="300"
-                                        Header="Naziv stanice">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock TextAlignment="Left"
-                                               Text="{Binding OtherName}"
-                                               Width="300" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Width="300"
-                                        Header="Dužina u kilometrima">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock TextAlignment="Left"
-                                               Text="{Binding OtherName}"
-                                               Width="300" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Width="300"
-                                        Header="Cijena u dinarima">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBox TextAlignment="Center"
-                                             Text="{Binding PriceRSD}"
-                                             Width="300" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Width="300"
-                                        Header="Cijena u evrima">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBox TextAlignment="Center"
-                                             Text="{Binding PriceEUR}"
-                                             Width="300" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-
 
         </Grid>
         <Button Grid.RowSpan="2"

@@ -174,7 +174,7 @@ namespace TollSystem.DesktopHost.Controllers
             LostTicket = new LostTicketCommand(this);
             FinishTransaction = new FinishTransactionCommand(this);
             RaiseRamp = new RaiseRampCommand(this);
-            ReportDamage = new RepordDamageCommand();
+            ReportDamage = new NavigateCommand(typeof(ReportDamageViewModel));
 
             FillCategoryList();
             FillCurrencyList();

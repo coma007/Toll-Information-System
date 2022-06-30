@@ -6,7 +6,7 @@ using TollSystem.Commands;
 
 namespace TollSystem.DesktopHost.Controllers
 {
-    public class ReportDamageViewModel
+    public class ReportDamageViewModel : BaseViewModel
     {
         public ICommand Back { get; set; }
 
