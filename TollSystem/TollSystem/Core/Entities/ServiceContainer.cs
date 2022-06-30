@@ -19,7 +19,7 @@ namespace TollSystem.Core.Entities
         public static IDeviceRepositoryService DeviceRepositoryService =>
             new DeviceRepositoryService(RepositoryContainer.DeviceRepository);
 
-        public static IPriceModelService PriceModelService => new PriceModelService();
+        public static IPriceModelService PriceModelService => new PriceModelService(RepositoryContainer.SectionRepository, TollStationRepositoryService);
 
         public static IPriceRepositoryService PriceRepositoryService =>
             new PriceRepositoryService(RepositoryContainer.PriceRepository);

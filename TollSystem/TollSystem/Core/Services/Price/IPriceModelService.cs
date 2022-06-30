@@ -8,6 +8,6 @@ namespace TollSystem.Core.Services
 {
     public interface IPriceModelService
     {
-        public PriceEntity ModelToEntity(Price price, IRepositoryService<SectionEntity> repository);
+        public PriceEntity ModelToEntity(Price price);
     }
 }
