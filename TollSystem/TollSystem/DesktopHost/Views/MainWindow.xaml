@@ -49,6 +49,11 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:IncomeAtStationViewModel}">
                 <views:IncomeAtStationView />
+            <DataTemplate DataType="{x:Type viewmodels:DamagesViewModel}">
+                <views:DamagesView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:ReportDamageViewModel}">
+                <views:ReportDamageView />
             </DataTemplate>
 
         </Grid.Resources>

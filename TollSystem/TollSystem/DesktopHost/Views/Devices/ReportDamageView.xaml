@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="TollSystem.DesktopHost.Views.ReportDamageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TollSystem.DesktopHost.Views"
+             xmlns:viewmodels="clr-namespace:TollSystem.DesktopHost.Controllers"
+             d:DataContext="{d:DesignInstance Type=viewmodels:DamagesViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" d:Background="White">
+    <Grid>
+        <Label Grid.Row="0"
+               Margin="30 50 0 0"
+               Grid.ColumnSpan="2"
+               Content="Prijavi kvar na uređaju"
+               FontSize="30"
+               HorizontalAlignment="Center" />
+        <Grid Grid.Column="0"
+              Margin="0 20 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="1"
+                   Content="Vrsta uređaja: "
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" />
+            <ComboBox Grid.Row="1"
+                      HorizontalAlignment="Center"
+                      Width="265"
+                      Height="30"
+                      ItemsSource="{Binding Devices}"
+                      SelectedItem="{Binding SelectedDevice}" />
+
+            <Label Grid.Row="2"
+                   Content="Opis kvara: "
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" />
+            <TextBox Grid.Row="2"
+                     Text="{Binding Description}"
+                     HorizontalAlignment="Center"
+                     TextWrapping="Wrap"
+                     Width="265"
+                     Height="80" />
+
+            <Button Grid.Row="7"
+                    Grid.ColumnSpan="2"
+                    Content="Sačuvaj"
+                    Command="{Binding Create}"
+                    Margin="0 -30 0 0"
+                    Height="40"
+                    Width="100"
+                    HorizontalAlignment="Center" />
+
+        </Grid>
+        <Button Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                Height="40"
+                Width="100"
+                Margin="0 0 50 100"
+                Content="Nazad"
+                Command="{Binding Back}"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" />
+    </Grid>
+</UserControl>

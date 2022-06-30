@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace TollSystem.DesktopHost.Views
 {
     /// <summary>
-    /// Interaction logic for DevicesView.xaml
+    /// Interaction logic for DamagesViewModel.xaml
     /// </summary>
-    public partial class DevicesView : UserControl
+    public partial class DamagesView : UserControl
     {
-        public DevicesView()
+        public DamagesView()
         {
             InitializeComponent();
         }

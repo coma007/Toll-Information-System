@@ -6,14 +6,13 @@ using TollSystem.Commands;
 
 namespace TollSystem.DesktopHost.Controllers
 {
-    public class DamagesViewModel : BaseViewModel
+    public class ReportDamageViewModel : BaseViewModel
     {
         public ICommand Back { get; set; }
 
-        public DamagesViewModel()
+        public ReportDamageViewModel()
         {
-            Back = new NavigateCommand(typeof(StationMasterViewModel));
+            Back = new NavigateCommand(typeof(ReferentViewModel));
         }
-
     }
 }
