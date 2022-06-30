@@ -30,11 +30,22 @@
             <DataTemplate DataType="{x:Type viewmodels:ReferentViewModel}">
                 <views:ReferentView />
             </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:ShowTollStationViewModel}">
+                <views:TollStationView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:CreateTollStationViewModel}">
+                <views:CreateTollStationView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:UpdateTollStationViewModel}">
+                <views:UpdateTollStationView />
+            </DataTemplate>
+            
         </Grid.Resources>
         <Button Height="40"
                 Width="100"
                 Margin="0 0 50 50"
-                Content="Logout"
+                Content="Odjavi se"
                 Command="{Binding Logout}"
                 Visibility="{Binding LogoutVisibility}"
                 VerticalAlignment="Bottom"
