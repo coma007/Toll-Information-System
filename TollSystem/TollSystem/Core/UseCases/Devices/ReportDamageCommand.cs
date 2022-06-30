@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 using TollSystem.Core.Entities;
 using TollSystem.Core.Services;
 using TollSystem.DesktopHost.Controllers;
@@ -50,6 +51,11 @@ namespace TollSystem.Commands
             {
                 if (d.Devicetype.Equals(type))
                 {
+                    if (d.Isdamaged == 1)
+                    {
+                        MessageBox.Show("Uredjaj već pokvaren", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
                     if (type.Equals("SCANNER"))
                     {
                         Scanner scanner = _scanner.GetById(d.Id);

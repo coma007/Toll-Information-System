@@ -35,6 +35,10 @@ namespace TollSystem.Commands.IncomeReport
             {
                 MessageBox.Show("Datum nije u dobrom formatu", "GREŠKA", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            catch (ArgumentNullException e)
+            {
+                MessageBox.Show("Unesite datum", "GREŠKA", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
     }
