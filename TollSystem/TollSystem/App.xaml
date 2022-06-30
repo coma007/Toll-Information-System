@@ -31,8 +31,6 @@
                 Value="Black" />
         <Setter Property="FontFamily"
                 Value="Segoe UI" />
-        <Setter Property="FontSize"
-                Value="12" />
         </Style>
     </Application.Resources>
 </Application>
