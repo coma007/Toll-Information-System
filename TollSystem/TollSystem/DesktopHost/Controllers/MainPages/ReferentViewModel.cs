@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
 using TollSystem.Commands;
+using TollSystem.Commands.TollPayment;
 using TollSystem.Core.Entities;
 using TollSystem.Core.Enumerations;
 
@@ -11,6 +12,7 @@ namespace TollSystem.DesktopHost.Controllers
 {
     public class ReferentViewModel : BaseViewModel
     {
+        private PhysicalPaymentService _paymentService;
         private string _ticketId;
         public string TicketId
         {
@@ -58,7 +60,14 @@ namespace TollSystem.DesktopHost.Controllers
         public VehicleCategory SelectedCategory
         {
             get { return _selectedCategory; }
-            set { _selectedCategory = value; OnPropertyChanged(nameof(SelectedCategory)); }
+            set 
+            {
+                _selectedCategory = value; 
+                OnPropertyChanged(nameof(SelectedCategory));
+                if (TicketId != null)
+                    Price = _paymentService.GetPrice(Int32.Parse(TicketId), SelectedCategory, SelectedCurrency);
+                else Price = _paymentService.GetBiggestPrice(SelectedCategory, SelectedCurrency);
+            }
         }
 
         private ObservableCollection<Currency> _currencies;
@@ -69,7 +78,14 @@ namespace TollSystem.DesktopHost.Controllers
         public Currency SelectedCurrency
         {
             get { return _selectedCurrency; }
-            set { _selectedCurrency = value; OnPropertyChanged(nameof(SelectedCurrency)); }
+            set 
+            { 
+                _selectedCurrency = value; 
+                OnPropertyChanged(nameof(SelectedCurrency));
+                if (TicketId != null)
+                    Price = _paymentService.GetPrice(Int32.Parse(TicketId), SelectedCategory, SelectedCurrency);
+                else Price = _paymentService.GetBiggestPrice(SelectedCategory, SelectedCurrency);
+            }
         }
 
         private double _price;
