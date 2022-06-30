@@ -33,11 +33,11 @@
         <Label Grid.Row="2"
                Content="Lozinka: "
                HorizontalAlignment="Center"></Label>
-        <TextBox Grid.Row="2"
-                 HorizontalAlignment="Center"
-                 Text="{Binding Password}"
-                 Width="300"
-                 Height="30"/>
+        <local:BindablePasswordBox Grid.Column="1"
+                                   Grid.Row="2"
+                                   Width="300"
+                                   Height="30"
+                                   Password="{Binding Password}" />
         <Button Grid.Row="3"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"

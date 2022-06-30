@@ -25,7 +25,7 @@ namespace TollSystem.Commands
 
             if (user is null)
             {
-                Console.WriteLine("Nema korisnika");
+                MessageBox.Show("Pogrešni kredencijali");
             }
             else
             {
