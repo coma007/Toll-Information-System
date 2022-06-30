@@ -163,6 +163,8 @@ namespace TollSystem.DesktopHost.Controllers
             get { return _isPayementEnabled && _paid > _price; }
         }
 
+
+
         public ReferentViewModel()
         {
             RampPosition = 20;
