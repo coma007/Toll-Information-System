@@ -13,14 +13,12 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="7*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <TextBlock
-                Text="Cjenovnik"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                FontSize="50">
-            </TextBlock>
-        </Grid>
+        <Label Grid.Row="0"
+               Margin="30 50 0 0"
+               Grid.ColumnSpan="2"
+               Content="Cjenovnik"
+               FontSize="30"
+               HorizontalAlignment="Center" />
 
         <Grid Grid.Row="1">
             <ListView ItemsSource="{Binding Prices}"

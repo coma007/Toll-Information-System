@@ -29,7 +29,7 @@
             </Grid.ColumnDefinitions>
             <Label Grid.Row="1"
                    Content="Naziv stanice: "
-                   Margin="345 0 0 0"
+                   Margin="325 0 0 0"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top" />
             <TextBox Grid.Row="1"
@@ -76,7 +76,7 @@
                                         Header="Naziv stanice">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock TextAlignment="Left"
+                                    <TextBlock TextAlignment="Center"
                                                Text="{Binding Station}"
                                                Width="300" />
                                 </DataTemplate>

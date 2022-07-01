@@ -54,7 +54,7 @@
                                         Header="Redni broj mjesta">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock TextAlignment="Left"
+                                    <TextBlock TextAlignment="Center"
                                                Text="{Binding BoothId}"
                                                Width="400"/>
                                 </DataTemplate>

@@ -19,7 +19,7 @@
               Margin="0 20 0 0">
             <Label Grid.Row="1"
                    Content="Naziv stanice: "
-                   Margin="670 -65 0 0"
+                   Margin="635 -65 0 0"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center" />
             <TextBox Grid.Row="1"
